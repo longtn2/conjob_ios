@@ -12,7 +12,7 @@ def app_pods
   # UI
   pod 'SDWebImage', '5.18.2'
   pod 'SkeletonView', '1.30.4'
-
+  pod 'Koloda'
   # Network
   pod 'Alamofire', '5.8.0'
 

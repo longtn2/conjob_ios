@@ -24,3 +24,8 @@ extension UIColor {
         )
     }
 }
+
+struct ColorApp {
+    static let mainAppColor = "App Main Color 1"
+    static let secondaryAppColor = "Secondary Main Color"
+}

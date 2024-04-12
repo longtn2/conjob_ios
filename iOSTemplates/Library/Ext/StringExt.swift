@@ -66,3 +66,10 @@ extension String {
 func / (lhs: String, rhs: String) -> String {
     return lhs + "/" + rhs
 }
+//Convert date to string with format
+func dateToString(dateFormat format: String, date: Date) -> String
+{
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = format
+    return dateFormatter.string(from: date)
+}

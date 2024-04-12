@@ -20,11 +20,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // MARK: - Private functions
 
     private func configWindow() {
-        let exampleVC = ExampleVC()
-        exampleVC.viewModel = ExampleVM()
-        let navController = UINavigationController(rootViewController: exampleVC)
+        //let exampleVC = ExampleVC()
+        //exampleVC.viewModel = ExampleVM()
+        let onboardVC = OnboardingViewController()
+        let navController = UINavigationController(rootViewController: onboardVC)
         window?.rootViewController = navController
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
+        
+//        let homeVC = HomeController()
+//        let navController = UINavigationController(rootViewController: homeVC)
+//        window?.rootViewController = navController
+//        window?.backgroundColor = .white
+//        window?.makeKeyAndVisible()
     }
 }

@@ -1,0 +1,47 @@
+//
+//  Constants.swift
+//  iOSTemplates
+//
+//  Created by Admin on 10/04/2024.
+//  Copyright © 2024 Monstar Lab VietNam Co., Ltd. All rights reserved.
+//
+
+import Foundation
+
+struct ErrorRegister {
+    static let enterFirstName = "Please enter your first name"
+    static let enterLastName = "Please enter your last name"
+    static let enterPhone = "Please enter phone in correct format"
+    static let emailNotFormat = "Please enter Email in correct format"
+    static let email = "Please enter your Email address"
+    static let password = "Please enter your password"
+    static let passwordLess6Character = "6 or more characters"
+    static let bigDateNow = "Date must be less than 2010-01-01"
+}
+
+struct NameIcon {
+    static let icon_back = "icon_back"
+    static let icon_calendar = "icon_calendar"
+    static let icon_check = "icon_check"
+    static let icon_hide = "icon_hide"
+    static let icon_show = "icon_show"
+    static let logo_big = "logo_big"
+    static let logo_conJob = "logo_conJob"
+    static let logo_small = "logo_small"
+    static let icon_search = "icon_search"
+    static let logo_conJobWhite = "logo_conJobWhite"
+    static let icon_chat = "icon_chat"
+    static let icon_home = "icon_home"
+    static let icon_notification = "icon_notification"
+    static let icon_plus = "icon_plus"
+    static let icon_profile = "icon_profile"
+    static let icon_chatFill = "icon_chatFill"
+    static let icon_homeFill = "icon_homeFill"
+    static let icon_notificationFill = "icon_notificationFill"
+    static let icon_plusFill = "icon_plusFill"
+    static let icon_profileFill = "icon_profileFill"
+    static let icon_chatWhite = "icon_chatWhite"
+    static let icon_heart = "icon_heart"
+    static let icon_share = "icon_share"
+    
+}

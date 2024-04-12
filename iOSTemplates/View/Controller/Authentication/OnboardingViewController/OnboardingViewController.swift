@@ -9,9 +9,9 @@ final class OnboardingViewController: ViewController {
 
     // MARK: - Functions
     override func setupUI() {
-        self.loginView.customRoundCorners(radius: loginView.bounds.height / 2)
-        self.registerView.customRoundCorners(radius: registerView.bounds.height / 2)
-        self.tapView()
+        loginView.customRoundCorners(radius: loginView.bounds.height / 2)
+        registerView.customRoundCorners(radius: registerView.bounds.height / 2)
+        tapView()
         self.navigationController?.isNavigationBarHidden = true
     }
     override func setupData() {

@@ -3,7 +3,6 @@ import UIKit
 class HomeController: UITabBarController {
     
     //MARK: - Propeties
-    var viewModel: MatchingViewModel?
     let bottomTabbarView = BottomTabBarView([NameIcon.icon_home, NameIcon.icon_chat, NameIcon.icon_plus, NameIcon.icon_notification, NameIcon.icon_profile])
     
     
@@ -12,12 +11,13 @@ class HomeController: UITabBarController {
         super.viewDidLoad()
         setupUI()
         tabBar.isHidden = true
-        self.setupBottomTabBar()
+        setupBottomTabBar()
     }
     
     //MARK: - Functions
     private func setupUI() {
         let matchVC = MatchingViewController()
+        matchVC.viewModel = MatchingViewModel()
         let matchNavi = UINavigationController(rootViewController: matchVC)
         matchNavi.isNavigationBarHidden = true
         
@@ -49,7 +49,7 @@ class HomeController: UITabBarController {
 
 //MARK: - BottomTabBarViewDelegate
 extension HomeController: BottomTabBarViewDelegate {
-    func did(selectindex: Int) {
+    func cell(_ view: BottomTabBarView, needPerfom selectindex: Int) {
         selectedIndex = selectindex
     }
 }

@@ -1,6 +1,6 @@
 import UIKit
 protocol BottomTabBarViewDelegate: AnyObject {
-    func did(selectindex: Int)
+    func cell(_ view: BottomTabBarView,needPerfom selectindex: Int)
 }
 
 final class BottomTabBarView: UIView {
@@ -94,8 +94,8 @@ final class BottomTabBarView: UIView {
     //MARK: -Objc Functions
     @objc func changeTab(_ sender: UIButton) {
         sender.pulse()
-        self.delegate?.did(selectindex: sender.tag)
-        self.updateUI(selectedIndex: sender.tag)
+        delegate?.did(selectindex: sender.tag)
+        updateUI(selectedIndex: sender.tag)
     }
     
 }

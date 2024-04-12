@@ -20,30 +20,30 @@ final class RegisterViewController: ViewController {
         static let roles = ["Candidate", "Recruiter"]
         static let logoSmallImageName: String = "logo_small"
     }
-    
+
     private var menuGender: [UIMenuElement] = []
     private var menuRole: [UIMenuElement] = []
     private var checkFirst: Bool = false
     private var checkLast: Bool = false
     private var checkPhone: Bool = false
     private var checkDate: Bool = false
-    
+
     //MARK: Functions
     override func setupData() {
 
     }
     override func setupUI() {
-        self.firstNameTextField.delegate = self
-        self.lastNameTextField.delegate = self
-        self.phoneTextField.delegate = self
-        self.dateOfBirthTextField.isEnabled = false
-        self.continueButton.customRoundCorners(radius: 7)
-        self.continueButton.isHidden = true
+        firstNameTextField.delegate = self
+        lastNameTextField.delegate = self
+        phoneTextField.delegate = self
+        dateOfBirthTextField.isEnabled = false
+        continueButton.customRoundCorners(radius: 7)
+        continueButton.isHidden = true
         let image = UIImage(named: Const.logoSmallImageName)
-        self.setupUINavigationBar(withtitle: "", left: image, right: UIImage())
-        self.setupMenuChooseGender()
-        self.setupMenuChooseRole()
-        
+        setupUINavigationBar(withtitle: "", left: image, right: UIImage())
+        setupMenuChooseGender()
+        setupMenuChooseRole()
+
     }
 
     private func setupMenuChooseGender() {
@@ -57,10 +57,10 @@ final class RegisterViewController: ViewController {
         }
 
         if #available(iOS 14.0, *) {
-            self.genderButton.menu = UIMenu(options: .displayInline, children: menuGender)
-            self.genderButton.showsMenuAsPrimaryAction = true
+            genderButton.menu = UIMenu(options: .displayInline, children: menuGender)
+            genderButton.showsMenuAsPrimaryAction = true
             if #available(iOS 15.0, *) {
-                self.genderButton.changesSelectionAsPrimaryAction = true
+                genderButton.changesSelectionAsPrimaryAction = true
             } else {
                 return
             }
@@ -69,7 +69,7 @@ final class RegisterViewController: ViewController {
         }
     }
     private func setupMenuChooseRole() {
-        self.roleButton.customRoundCorners(radius: 7)
+        roleButton.customRoundCorners(radius: 7)
         let actionClosure = { (action: UIAction) in
 
         }
@@ -79,10 +79,10 @@ final class RegisterViewController: ViewController {
         }
 
         if #available(iOS 14.0, *) {
-            self.roleButton.menu = UIMenu(options: .displayInline, children: menuRole)
-            self.roleButton.showsMenuAsPrimaryAction = true
+            roleButton.menu = UIMenu(options: .displayInline, children: menuRole)
+            roleButton.showsMenuAsPrimaryAction = true
             if #available(iOS 15.0, *) {
-                self.roleButton.changesSelectionAsPrimaryAction = true
+                roleButton.changesSelectionAsPrimaryAction = true
             } else {
                 return
             }
@@ -107,8 +107,8 @@ final class RegisterViewController: ViewController {
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.pushViewController(loginVC, animated: true)
     }
-    
-    private func showError(_ label: UILabel, testErr: String ,check: Bool = false) {
+
+    private func showError(_ label: UILabel, testErr: String, check: Bool = false) {
         label.isHidden = check
         label.text = testErr
     }
@@ -117,7 +117,7 @@ final class RegisterViewController: ViewController {
 //MARK: DatePickerViewDelegate
 extension RegisterViewController: DatePickerViewDelegate {
     func view(_ view: DatePickerViewController, needPerfom date: String) {
-        self.checkDate = true
+        checkDate = true
         dateOfBirthTextField.text = date
         continueButton.isHidden = (checkFirst && checkLast && checkPhone && checkDate) ? false : true
     }
@@ -130,15 +130,15 @@ extension RegisterViewController: UITextFieldDelegate {
         case firstNameTextField:
             let check = text.isValidName(text)
             checkFirst = check
-            self.showError(errorFirstNameLabel, testErr: ErrorRegister.enterFirstName, check: check)
+            showError(errorFirstNameLabel, testErr: ErrorRegister.enterFirstName, check: check)
         case lastNameTextField:
             let check = text.isValidName(text)
             checkLast = check
-            self.showError(errorLastNameLabel, testErr: ErrorRegister.enterLastName, check: check)
+            showError(errorLastNameLabel, testErr: ErrorRegister.enterLastName, check: check)
         case phoneTextField:
             let check = text.isValidPhone(text)
             checkPhone = check
-            self.showError(errorPhoneLabel, testErr: ErrorRegister.enterPhone, check: check)
+            showError(errorPhoneLabel, testErr: ErrorRegister.enterPhone, check: check)
         default:
             return
         }

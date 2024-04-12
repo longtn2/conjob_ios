@@ -20,14 +20,14 @@ final class LoginViewController: ViewController {
     }
     //MARK: Functions
     override func setupUI() {
-        self.emailTextField.delegate = self
-        self.passwordTextField.delegate = self
-        self.errorEmailLabel.isHidden = true
-        self.continueButton.customRoundCorners(radius: 7)
-        self.continueButton.isHidden = true
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        errorEmailLabel.isHidden = true
+        continueButton.customRoundCorners(radius: 7)
+        continueButton.isHidden = true
         let image = isRegister ? UIImage(named: NameIcon.icon_back) : UIImage(named: NameIcon.logo_small)
-        self.setupUINavigationBar(withtitle: "", left: image, right: UIImage())
-        self.titleLabel.text = isRegister ? Const.registerText : Const.loginText
+        setupUINavigationBar(withtitle: "", left: image, right: UIImage())
+        titleLabel.text = isRegister ? Const.registerText : Const.loginText
     }
 
     override func tapLeftBarButton() {
@@ -61,11 +61,11 @@ extension LoginViewController: UITextFieldDelegate {
         case emailTextField:
             let check = text.isValidEmail(text)
             checkMail = check
-            self.showError(errorEmailLabel, testErr: ErrorRegister.emailNotFormat, check: check)
+            showError(errorEmailLabel, testErr: ErrorRegister.emailNotFormat, check: check)
         default:
             let check = text.isValidatePassword(text)
             checkPass = check
-            self.showError(errorPasswordLabel, testErr: ErrorRegister.password, check: check)
+            showError(errorPasswordLabel, testErr: ErrorRegister.password, check: check)
         }
         continueButton.isHidden = (checkMail && checkPass) ? false : true
     }

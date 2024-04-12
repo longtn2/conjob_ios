@@ -7,18 +7,19 @@ final class MatchingViewController: ViewController {
     @IBOutlet private weak var kolodaView: KolodaView!
     
     //MARK: - Propeties
-    var viewModel = MatchingViewModel()
+    var viewModel: MatchingViewModel?
     
     //MARK: - Functions
     override func setupUI() {
         super.setupUI()
-        viewModel.listPost()
-        kolodaView.delegate = self
-        kolodaView.dataSource = self
     }
 
     override func setupData() {
         super.setupData()
+        guard let viewModel = viewModel else { return  }
+        viewModel.listPost()
+        kolodaView.delegate = self
+        kolodaView.dataSource = self
     }
 }
 
@@ -28,7 +29,8 @@ extension MatchingViewController: KolodaViewDelegate, KolodaViewDataSource {
         kolodaView.reloadData()
     }
     func kolodaNumberOfCards(_ koloda: Koloda.KolodaView) -> Int {
-        return viewModel.posts.count
+        
+        return viewModel?.posts.count ?? 0
     }
     func kolodaSpeedThatCardShouldDrag(_ koloda: KolodaView) -> DragSpeed {
         return .default
@@ -38,6 +40,7 @@ extension MatchingViewController: KolodaViewDelegate, KolodaViewDataSource {
             return UIView()
         }
         view.delegate = self
+        guard let viewModel = viewModel else { return UIView() }
         view.viewModel = viewModel.viewModelForMatching(at: index)
         return view
     }

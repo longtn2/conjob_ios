@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class Post {
+class Post: Decodable {
     var id: String
     var image: String
     var name: String

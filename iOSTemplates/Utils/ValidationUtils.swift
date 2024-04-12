@@ -2,7 +2,7 @@ import Foundation
 
 extension String {
     func isValidatePassword(_ pass: String) -> Bool {
-        let passRegEx = "^[A-Za-z0-9@!#$]{6,15}"
+        let passRegEx = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,32}$"
         //^ bắt đầu nhập chuỗi
         //[A-Za-z] chuỗi chứa kí tự A-Z và a-z
         //{6,15} chuỗi có 3 - 15 kí tự
@@ -10,7 +10,7 @@ extension String {
         return passPred.evaluate(with: pass)
     }
     func isValidEmail(_ email: String) -> Bool {
-        let emailRegEx = "[A-Za-z][A-Z0-9a-z._+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailRegEx = "^[A-Za-z][\\w\\-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$"
         //[A-Za-z] kí tự đầu tiên là chữ
         // [A-Z0-9a-z. : kí tự chữ, số dấu có thể xuất hiện nhiều lần
         //_+ dấu _ có thể có 1 hoặc nhiều

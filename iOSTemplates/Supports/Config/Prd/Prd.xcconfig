@@ -1,0 +1,14 @@
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// APP INFO
+PRODUCT_NAME = iOSTemplates
+
+PRODUCT_BUNDLE_IDENTIFIER = vn.ml.iOSTemplates
+
+VERSION_NUMBER = 1.0.0
+
+// API
+BASE_URL = https:\/\/pokeapi.co\/api
+
+API_VERSION = v2

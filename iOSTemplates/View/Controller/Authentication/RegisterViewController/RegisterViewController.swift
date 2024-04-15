@@ -18,7 +18,6 @@ final class RegisterViewController: ViewController {
     private enum Const {
         static let genders = ["Male", "Female", "Other"]
         static let roles = ["Candidate", "Recruiter"]
-        static let logoSmallImageName: String = "logo_small"
     }
 
     private var menuGender: [UIMenuElement] = []
@@ -37,12 +36,13 @@ final class RegisterViewController: ViewController {
         lastNameTextField.delegate = self
         phoneTextField.delegate = self
         dateOfBirthTextField.isEnabled = false
-        continueButton.customRoundCorners(radius: 7)
-        continueButton.isHidden = true
-        let image = UIImage(named: Const.logoSmallImageName)
+        continueButton.customRoundCorners(radius: 8)
+        continueButton.isEnabled = false
+        let image = UIImage(named: NameIcon.logo_small)
         setupUINavigationBar(withtitle: "", left: image, right: UIImage())
         setupMenuChooseGender()
         setupMenuChooseRole()
+        
 
     }
 
@@ -92,7 +92,7 @@ final class RegisterViewController: ViewController {
     }
 
     override func tapLeftBarButton() {
-        self.navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     //MARK: IBActions
     @IBAction private func chooseDateButtonTouchUpInside(_ sender: UIButton) {
@@ -103,9 +103,11 @@ final class RegisterViewController: ViewController {
     }
     @IBAction private func continueButtonTouchUpInside(_ sender: UIButton) {
         let loginVC = LoginViewController()
-        loginVC.isRegister = true
-        self.navigationController?.isNavigationBarHidden = false
-        self.navigationController?.pushViewController(loginVC, animated: true)
+        let viewModel = LoginViewModel()
+        viewModel.isReister = true
+        loginVC.viewModel = viewModel
+        navigationController?.isNavigationBarHidden = false
+        navigationController?.pushViewController(loginVC, animated: true)
     }
 
     private func showError(_ label: UILabel, testErr: String, check: Bool = false) {
@@ -119,30 +121,31 @@ extension RegisterViewController: DatePickerViewDelegate {
     func view(_ view: DatePickerViewController, needPerfom date: String) {
         checkDate = true
         dateOfBirthTextField.text = date
-        continueButton.isHidden = (checkFirst && checkLast && checkPhone && checkDate) ? false : true
+        continueButton.isEnabled =  (checkFirst && checkLast && checkPhone && checkDate) ? true : false
     }
 }
 //MARK: UITextFieldDelegate
 extension RegisterViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let text = textField.text else { return }
+        let checkEmpty = text.isEmpty
         switch textField {
         case firstNameTextField:
             let check = text.isValidName(text)
             checkFirst = check
-            showError(errorFirstNameLabel, testErr: ErrorRegister.enterFirstName, check: check)
+            showError(errorFirstNameLabel, testErr: checkEmpty ? ErrorRegister.validateFirstNameNull : ErrorRegister.validateFirstName, check: check)
         case lastNameTextField:
             let check = text.isValidName(text)
             checkLast = check
-            showError(errorLastNameLabel, testErr: ErrorRegister.enterLastName, check: check)
+            showError(errorLastNameLabel, testErr: checkEmpty ? ErrorRegister.validateLastNameNull : ErrorRegister.validateLastName, check: check)
         case phoneTextField:
             let check = text.isValidPhone(text)
             checkPhone = check
-            showError(errorPhoneLabel, testErr: ErrorRegister.enterPhone, check: check)
+            showError(errorPhoneLabel, testErr: checkEmpty ? ErrorRegister.validatePhoneNull : ErrorRegister.validatePhone, check: check)
         default:
             return
         }
-        continueButton.isHidden = (checkFirst && checkLast && checkPhone && checkDate) ? false : true
+        continueButton.isEnabled = (checkFirst && checkLast && checkPhone && checkDate) ? true : false
     }
 }
 

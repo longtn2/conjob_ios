@@ -49,7 +49,7 @@ final class MatchingView: OverlayView {
     //MARK: - Functions
     private func setupUI() {
         Bundle.main.loadNibNamed("MatchingView", owner: self, options: nil)
-        self.addSubview(matchingView)
+        addSubview(matchingView)
         matchingView.frame = self.bounds
         matchingView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         avatarImageView.customCorner(radius: avatarImageView.frame.height / 2)

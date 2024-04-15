@@ -30,7 +30,7 @@ class HomeController: UITabBarController {
         let notiVC = NotificationViewController()
         let notiNavi = UINavigationController(rootViewController: notiVC)
         
-        let profileVC = NotificationViewController()
+        let profileVC = ProfileViewController()
         let profileNavi = UINavigationController(rootViewController: profileVC)
         
         viewControllers = [matchNavi,messageNavi,addPostNavi,notiNavi,profileNavi]

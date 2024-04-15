@@ -1,12 +1,13 @@
 import Foundation
 
 protocol CommonLogic {
-    func loginHandler()
+    func loginHandler(withEmail email: String, pass: String)
     func registerHandler()
 }
 
 final class RegisterViewModel: CommonLogic {
-    func loginHandler() {
+    var isRegister: Bool = true
+    func loginHandler(withEmail email: String, pass: String) {
         
     }
     
@@ -15,12 +16,4 @@ final class RegisterViewModel: CommonLogic {
     }
 }
 
-final class LoginViewModel: CommonLogic {
-    func loginHandler() {
-        
-    }
-    
-    func registerHandler() {
-        
-    }
-}
+

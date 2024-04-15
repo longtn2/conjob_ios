@@ -217,4 +217,15 @@ extension UIView {
         layer.masksToBounds = true
         layer.maskedCorners = corners
     }
+    
+    func customRoundCorners(radius: CGFloat) {
+        layer.cornerRadius = radius
+        clipsToBounds = true
+    }
+    func customCorner(with width: CGFloat = 1, radius: CGFloat, color: UIColor = UIColor.white) {
+        layer.cornerRadius = radius
+        clipsToBounds = true
+        layer.borderWidth = width
+        layer.borderColor = color.cgColor
+    }
 }

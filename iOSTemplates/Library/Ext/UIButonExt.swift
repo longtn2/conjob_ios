@@ -1,11 +1,3 @@
-//
-//  UIButonExt.swift
-//  iOSTemplates
-//
-//  Created by mac on 12/4/24.
-//  Copyright © 2024 Monstar Lab VietNam Co., Ltd. All rights reserved.
-//
-
 import Foundation
 import UIKit
 extension UIButton {

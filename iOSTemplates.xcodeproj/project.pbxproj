@@ -371,13 +371,6 @@
 			path = TabBarController;
 			sourceTree = "<group>";
 		};
-		84E767FA2BC91370007D7C5A /* MockData */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MockData;
-			sourceTree = "<group>";
-		};
 		84E767FD2BC91391007D7C5A /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,7 +482,6 @@
 			isa = PBXGroup;
 			children = (
 				84E768062BC92844007D7C5A /* Utils */,
-				84E767FA2BC91370007D7C5A /* MockData */,
 				8A625D072955685E007F1E99 /* AppDelegate.swift */,
 				8A625D092955685E007F1E99 /* SceneDelegate.swift */,
 				8A5CC42C2ACD4F3E007A555E /* Define */,

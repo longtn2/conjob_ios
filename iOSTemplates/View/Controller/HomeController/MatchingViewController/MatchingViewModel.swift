@@ -1,11 +1,3 @@
-//
-//  MatchingViewModel.swift
-//  iOSTemplates
-//
-//  Created by mac on 11/4/24.
-//  Copyright © 2024 Monstar Lab VietNam Co., Ltd. All rights reserved.
-//
-
 import Foundation
 final class MatchingViewModel {
     var posts: [Post] = []

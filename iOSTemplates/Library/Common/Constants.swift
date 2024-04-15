@@ -1,11 +1,3 @@
-//
-//  Constants.swift
-//  iOSTemplates
-//
-//  Created by Admin on 10/04/2024.
-//  Copyright © 2024 Monstar Lab VietNam Co., Ltd. All rights reserved.
-//
-
 import Foundation
 
 struct ErrorRegister {
@@ -51,5 +43,8 @@ struct NameIcon {
     static let icon_chatWhite = "icon_chatWhite"
     static let icon_heart = "icon_heart"
     static let icon_share = "icon_share"
-    
+}
+
+struct CellIdentifer {
+    static let matchingView = "MatchingView"
 }

@@ -1,6 +1,6 @@
 import UIKit
 protocol DatePickerViewDelegate: AnyObject {
-    func view(_ view: DatePickerViewController, needPerfom date: String)
+    func viewController(_ view: DatePickerViewController, needPerfom date: String)
 }
 
 final class DatePickerViewController: ViewController {
@@ -31,7 +31,7 @@ final class DatePickerViewController: ViewController {
     }
     @IBAction private func acceptButtonTouchUpInside(_ sender: UIButton) {
         let dateString: String = dateToString(dateFormat: "yyyy-MM-dd", date: datePicker.date)
-        delegate?.view(self, needPerfom: dateString)
+        delegate?.viewController(self, needPerfom: dateString)
         self.dismiss(animated: true)
     }
 }

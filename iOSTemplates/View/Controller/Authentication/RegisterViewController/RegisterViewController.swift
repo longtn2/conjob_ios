@@ -11,6 +11,7 @@ final class RegisterViewController: ViewController {
     @IBOutlet private weak var errorPhoneLabel: UILabel!
     @IBOutlet private weak var errorLastNameLabel: UILabel!
     @IBOutlet private weak var errorFirstNameLabel: UILabel!
+    @IBOutlet weak var dateOfBirthButton: UIButton!
     @IBOutlet private weak var roleButton: UIButton!
     @IBOutlet private weak var genderButton: UIButton!
 
@@ -38,12 +39,10 @@ final class RegisterViewController: ViewController {
         dateOfBirthTextField.isEnabled = false
         continueButton.customRoundCorners(radius: 8)
         continueButton.isEnabled = false
-        let image = UIImage(named: NameIcon.logo_small)
+        let image = UIImage(named: NameIcon.icon_back)
         setupUINavigationBar(withtitle: "", left: image, right: UIImage())
         setupMenuChooseGender()
         setupMenuChooseRole()
-        
-
     }
 
     private func setupMenuChooseGender() {
@@ -118,7 +117,7 @@ final class RegisterViewController: ViewController {
 
 //MARK: DatePickerViewDelegate
 extension RegisterViewController: DatePickerViewDelegate {
-    func view(_ view: DatePickerViewController, needPerfom date: String) {
+    func viewController(_ view: DatePickerViewController, needPerfom date: String) {
         checkDate = true
         dateOfBirthTextField.text = date
         continueButton.isEnabled =  (checkFirst && checkLast && checkPhone && checkDate) ? true : false
@@ -131,15 +130,15 @@ extension RegisterViewController: UITextFieldDelegate {
         let checkEmpty = text.isEmpty
         switch textField {
         case firstNameTextField:
-            let check = text.isValidName(text)
+            let check = RegexManager.shared.isValidName(text)
             checkFirst = check
             showError(errorFirstNameLabel, testErr: checkEmpty ? ErrorRegister.validateFirstNameNull : ErrorRegister.validateFirstName, check: check)
         case lastNameTextField:
-            let check = text.isValidName(text)
+            let check = RegexManager.shared.isValidName(text)
             checkLast = check
             showError(errorLastNameLabel, testErr: checkEmpty ? ErrorRegister.validateLastNameNull : ErrorRegister.validateLastName, check: check)
         case phoneTextField:
-            let check = text.isValidPhone(text)
+            let check = RegexManager.shared.isValidPhone(text)
             checkPhone = check
             showError(errorPhoneLabel, testErr: checkEmpty ? ErrorRegister.validatePhoneNull : ErrorRegister.validatePhone, check: check)
         default:

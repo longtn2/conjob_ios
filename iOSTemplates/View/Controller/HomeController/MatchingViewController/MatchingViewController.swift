@@ -36,7 +36,7 @@ extension MatchingViewController: KolodaViewDelegate, KolodaViewDataSource {
         return .default
     }
     func koloda(_ koloda: Koloda.KolodaView, viewForCardAt index: Int) -> UIView {
-        guard let view = Bundle.main.loadNibNamed("MatchingView", owner: nil, options: nil)?[0] as? MatchingView else {
+        guard let view = Bundle.main.loadNibNamed(CellIdentifer.matchingView, owner: nil, options: nil)?[0] as? MatchingView else {
             return UIView()
         }
         view.delegate = self

@@ -1,6 +1,7 @@
 import Foundation
 
-extension String {
+class RegexManager {
+    static let shared = RegexManager()
     func isValidatePassword(_ pass: String) -> Bool {
         let passRegEx = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,32}$"
         //^ bắt đầu nhập chuỗi

@@ -24,9 +24,9 @@ final class LoginViewController: ViewController {
         passwordTextField.delegate = self
         continueButton.customRoundCorners(radius: 8)
         continueButton.isEnabled = false
+        let image = UIImage(named: NameIcon.icon_back)
+        setupUINavigationBar(withtitle: "", left: image, right: UIImage())
         if let viewModel = viewModel {
-            let image = viewModel.isReister ? UIImage(named: NameIcon.icon_back) : UIImage(named: NameIcon.logo_small)
-            setupUINavigationBar(withtitle: "", left: image, right: UIImage())
             titleLabel.text = viewModel.isReister ? Const.registerText : Const.loginText
         }
     }
@@ -62,11 +62,11 @@ extension LoginViewController: UITextFieldDelegate {
         let checkEmpty = text.isEmpty
         switch textField {
         case emailTextField:
-            let check = text.isValidEmail(text)
+            let check = RegexManager.shared.isValidEmail(text)
             checkMail = check
             showError(errorEmailLabel, testErr: checkEmpty ? ErrorRegister.validateEmailNull : ErrorRegister.validateEmail, check: check)
         default:
-            let check = text.isValidatePassword(text)
+            let check = RegexManager.shared.isValidatePassword(text)
             checkPass = check
             showError(errorPasswordLabel, testErr: checkEmpty ? ErrorRegister.validatePasswordNull : ErrorRegister.validatePasswordRequire, check: check)
         }

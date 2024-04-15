@@ -49,36 +49,36 @@ final class MatchingView: OverlayView {
     //MARK: - Functions
     private func setupUI() {
         Bundle.main.loadNibNamed("MatchingView", owner: self, options: nil)
-        self.addSubview(matchingView)
-        self.matchingView.frame = self.bounds
-        self.matchingView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        self.avatarImageView.customCorner(radius: avatarImageView.frame.height / 2)
+        addSubview(matchingView)
+        matchingView.frame = self.bounds
+        matchingView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        avatarImageView.customCorner(radius: avatarImageView.frame.height / 2)
     }
 
     private func updateView() {
         guard let viewModel = viewModel else { return }
-        self.postImageView.image = UIImage(named: viewModel.image)
-        self.nameLabel.text = viewModel.name
-        self.descriptionLabel.text = viewModel.description
-        self.numberHeartLabel.text = String(viewModel.numberHeart)
-        self.numberShareLabel.text = String(viewModel.numberShare)
-        self.numberMessageLabel.text = String(viewModel.numberMessage)
-        self.avatarImageView.image = UIImage(named: viewModel.avartar)
-        self.descriptionLabel.text = viewModel.description
+        postImageView.image = UIImage(named: viewModel.image)
+        nameLabel.text = viewModel.name
+        descriptionLabel.text = viewModel.description
+        numberHeartLabel.text = String(viewModel.numberHeart)
+        numberShareLabel.text = String(viewModel.numberShare)
+        numberMessageLabel.text = String(viewModel.numberMessage)
+        avatarImageView.image = UIImage(named: viewModel.avartar)
+        descriptionLabel.text = viewModel.description
     }
 
     //MARK: - IBAction
     @IBAction private func searchButtonTouchUpInside(_ sender: UIButton) {
-        self.delegate?.view(self, needPerfom: Action.Search)
+        delegate?.view(self, needPerfom: Action.Search)
     }
     @IBAction private func heartButtonTouchUpInside(_ sender: UIButton) {
-        self.delegate?.view(self, needPerfom: Action.Heart)
+        delegate?.view(self, needPerfom: Action.Heart)
     }
     @IBAction private func messageButtonTouchUpInside(_ sender: UIButton) {
-        self.delegate?.view(self, needPerfom: Action.Message)
+        delegate?.view(self, needPerfom: Action.Message)
     }
     @IBAction private func shareButtonTouchUpInside(_ sender: UIButton) {
-        self.delegate?.view(self, needPerfom: Action.Share)
+        delegate?.view(self, needPerfom: Action.Share)
     }
 }
 

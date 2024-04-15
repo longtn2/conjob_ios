@@ -9,13 +9,21 @@
 import Foundation
 
 struct ErrorRegister {
-    static let enterFirstName = "Please enter your first name"
-    static let enterLastName = "Please enter your last name"
-    static let enterPhone = "Please enter phone in correct format"
-    static let emailNotFormat = "Please enter Email in correct format"
-    static let email = "Please enter your Email address"
-    static let password = "Please enter your password"
-    static let passwordLess6Character = "6 or more characters"
+    static let validateFirstNameNull = "Please enter your first name"
+    static let validateFirstName = "Your first name is invalid"
+    
+    static let validateLastNameNull = "Please enter your last name"
+    static let validateLastName = "Your last name is invalid"
+    
+    static let validatePhoneNull = "Please enter your phone"
+    static let validatePhone = "Your phone is invalid"
+    
+    static let validateEmailNull = "Please enter your email"
+    static let validateEmail = "Your email is not correct!"
+    
+    static let validatePasswordNull = "Please enter your Password"
+    static let validatePasswordRequire = "8 or more characters, contains uppercase letters, lowercase letters, numbers, and symbols"
+
     static let bigDateNow = "Date must be less than 2010-01-01"
 }
 

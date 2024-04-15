@@ -18,9 +18,9 @@ final class DatePickerViewController: ViewController {
 
     }
     override func setupUI() {
-        self.backButton.customRoundCorners(radius: 5)
-        self.acceptButton.customRoundCorners(radius: 5)
-        self.pickerView.customRoundCorners(radius: 5)
+        backButton.customRoundCorners(radius: 5)
+        acceptButton.customRoundCorners(radius: 5)
+        pickerView.customRoundCorners(radius: 5)
     }
 
     @IBAction private func dismissButtonTouchUpInside(_ sender: UIButton) {
@@ -31,7 +31,7 @@ final class DatePickerViewController: ViewController {
     }
     @IBAction private func acceptButtonTouchUpInside(_ sender: UIButton) {
         let dateString: String = dateToString(dateFormat: "yyyy-MM-dd", date: datePicker.date)
-        self.delegate?.view(self, needPerfom: dateString)
+        delegate?.view(self, needPerfom: dateString)
         self.dismiss(animated: true)
     }
 }

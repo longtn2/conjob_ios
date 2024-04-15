@@ -50,4 +50,10 @@ class ViewController: UIViewController {
     @objc func tapRightBarButton() {
 
     }
+    func setRootWithNavigationItemTo(_ viewController: UIViewController) {
+        let window = (UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate).window
+        let nav = UINavigationController(rootViewController: viewController)
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
+    }
 }

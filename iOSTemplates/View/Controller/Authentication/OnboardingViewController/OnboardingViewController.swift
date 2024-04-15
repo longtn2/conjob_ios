@@ -9,10 +9,10 @@ final class OnboardingViewController: ViewController {
 
     // MARK: - Functions
     override func setupUI() {
-        self.loginView.customRoundCorners(radius: loginView.bounds.height / 2)
-        self.registerView.customRoundCorners(radius: registerView.bounds.height / 2)
-        self.tapView()
-        self.navigationController?.isNavigationBarHidden = true
+        loginView.customRoundCorners(radius: 8)
+        registerView.customCorner(radius: 8, color: UIColor.black)
+        tapView()
+        navigationController?.isNavigationBarHidden = true
     }
     override func setupData() {
 
@@ -21,23 +21,25 @@ final class OnboardingViewController: ViewController {
     //MARK: - UITapGestureRecognizer
     private func tapView() {
         let gestureLoginView = UITapGestureRecognizer(target: self, action: #selector(self.tapLoginView))
-        self.loginView.addGestureRecognizer(gestureLoginView)
+        loginView.addGestureRecognizer(gestureLoginView)
 
         let gestureRegisterView = UITapGestureRecognizer(target: self, action: #selector(self.tapRegisterView))
-        self.registerView.addGestureRecognizer(gestureRegisterView)
+        registerView.addGestureRecognizer(gestureRegisterView)
     }
 
     //MARK: - OBJ Functions
     @objc private func tapLoginView(_ sender: UITapGestureRecognizer) {
         let loginVC = LoginViewController()
-        loginVC.isRegister = false
-        self.navigationController?.isNavigationBarHidden = false
-        self.navigationController?.pushViewController(loginVC, animated: true)
+        let viewModel = LoginViewModel()
+        viewModel.isReister = false
+        loginVC.viewModel = viewModel
+        navigationController?.isNavigationBarHidden = false
+        navigationController?.pushViewController(loginVC, animated: true)
     }
 
     @objc private func tapRegisterView(_ sender: UITapGestureRecognizer) {
         let regisVC = RegisterViewController()
-        self.navigationController?.isNavigationBarHidden = false
-        self.navigationController?.pushViewController(regisVC, animated: true)
+        navigationController?.isNavigationBarHidden = false
+        navigationController?.pushViewController(regisVC, animated: true)
     }
 }

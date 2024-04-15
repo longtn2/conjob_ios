@@ -1,6 +1,6 @@
 import UIKit
 protocol BottomTabBarViewDelegate: AnyObject {
-    func did(selectindex: Int)
+    func cell(_ view: BottomTabBarView,needPerfom selectindex: Int)
 }
 
 final class BottomTabBarView: UIView {
@@ -14,8 +14,8 @@ final class BottomTabBarView: UIView {
         super.init(frame: .zero)
         backgroundColor = .white
 
-        self.setupStackView(items)
-        self.updateUI(selectedIndex: 0)
+        setupStackView(items)
+        updateUI(selectedIndex: 0)
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -94,8 +94,8 @@ final class BottomTabBarView: UIView {
     //MARK: -Objc Functions
     @objc func changeTab(_ sender: UIButton) {
         sender.pulse()
-        self.delegate?.did(selectindex: sender.tag)
-        self.updateUI(selectedIndex: sender.tag)
+        delegate?.cell(self, needPerfom: sender.tag)
+        updateUI(selectedIndex: sender.tag)
     }
     
 }

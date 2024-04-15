@@ -10,7 +10,6 @@
 		84E767C62BC9117A007D7C5A /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E767BC2BC9117A007D7C5A /* RegisterViewController.xib */; };
 		84E767C72BC9117A007D7C5A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E767BD2BC9117A007D7C5A /* RegisterViewController.swift */; };
 		84E767C82BC9117A007D7C5A /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E767BE2BC9117A007D7C5A /* RegisterViewModel.swift */; };
-		84E767C92BC9117A007D7C5A /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E767C02BC9117A007D7C5A /* OnboardingViewController.xib */; };
 		84E767CA2BC9117A007D7C5A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E767C12BC9117A007D7C5A /* OnboardingViewController.swift */; };
 		84E767CB2BC9117A007D7C5A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E767C32BC9117A007D7C5A /* LoginViewModel.swift */; };
 		84E767CC2BC9117A007D7C5A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E767C42BC9117A007D7C5A /* LoginViewController.xib */; };
@@ -37,6 +36,7 @@
 		84E768012BC91391007D7C5A /* ValidationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E767FF2BC91391007D7C5A /* ValidationUtils.swift */; };
 		84E768032BC913C2007D7C5A /* UIViewExtH.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E768022BC913C2007D7C5A /* UIViewExtH.swift */; };
 		84E768052BC913C8007D7C5A /* UIButonExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E768042BC913C8007D7C5A /* UIButonExt.swift */; };
+		84E768092BCCBD42007D7C5A /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E768082BCCBD42007D7C5A /* OnboardingViewController.xib */; };
 		8A05D5D82ACAA4CB004FE287 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A05D5D72ACAA4CB004FE287 /* Error.swift */; };
 		8A05D5DA2ACAAB50004FE287 /* ResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A05D5D92ACAAB50004FE287 /* ResponseSerializer.swift */; };
 		8A56A101295D3EA800F2287D /* ExampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A56A0FF295D3EA800F2287D /* ExampleCell.swift */; };
@@ -105,7 +105,6 @@
 		84E767BC2BC9117A007D7C5A /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		84E767BD2BC9117A007D7C5A /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		84E767BE2BC9117A007D7C5A /* RegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
-		84E767C02BC9117A007D7C5A /* OnboardingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		84E767C12BC9117A007D7C5A /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		84E767C32BC9117A007D7C5A /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		84E767C42BC9117A007D7C5A /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -132,6 +131,7 @@
 		84E767FF2BC91391007D7C5A /* ValidationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationUtils.swift; sourceTree = "<group>"; };
 		84E768022BC913C2007D7C5A /* UIViewExtH.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtH.swift; sourceTree = "<group>"; };
 		84E768042BC913C8007D7C5A /* UIButonExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButonExt.swift; sourceTree = "<group>"; };
+		84E768082BCCBD42007D7C5A /* OnboardingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OnboardingViewController.xib; path = ../../../../../../../Documents/iOS/TemplateIOS/iOSTemplates/View/Controller/Authentication/OnboardingViewController/OnboardingViewController.xib; sourceTree = "<group>"; };
 		8A05D5D72ACAA4CB004FE287 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		8A05D5D92ACAAB50004FE287 /* ResponseSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseSerializer.swift; sourceTree = "<group>"; };
 		8A56A0FF295D3EA800F2287D /* ExampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCell.swift; sourceTree = "<group>"; };
@@ -260,7 +260,7 @@
 		84E767BF2BC9117A007D7C5A /* OnboardingViewController */ = {
 			isa = PBXGroup;
 			children = (
-				84E767C02BC9117A007D7C5A /* OnboardingViewController.xib */,
+				84E768082BCCBD42007D7C5A /* OnboardingViewController.xib */,
 				84E767C12BC9117A007D7C5A /* OnboardingViewController.swift */,
 			);
 			path = OnboardingViewController;
@@ -300,12 +300,6 @@
 				84E767D42BC9125D007D7C5A /* MatchingViewController.xib */,
 				84E767D82BC9125D007D7C5A /* MatchingViewModel.swift */,
 				84E767D52BC9125D007D7C5A /* MatchingView */,
-				84E767D92BC9125D007D7C5A /* AddPostViewController */,
-				84E767DC2BC9125D007D7C5A /* ProfileViewController */,
-				84E767DF2BC9125D007D7C5A /* MessageViewController */,
-				84E767E22BC9125D007D7C5A /* NotificationViewController */,
-				84E767E52BC9125D007D7C5A /* HomeController */,
-				84E767E72BC9125D007D7C5A /* TabBarController */,
 			);
 			path = MatchingViewController;
 			sourceTree = "<group>";
@@ -358,6 +352,12 @@
 		84E767E52BC9125D007D7C5A /* HomeController */ = {
 			isa = PBXGroup;
 			children = (
+				84E767D22BC9125D007D7C5A /* MatchingViewController */,
+				84E767DC2BC9125D007D7C5A /* ProfileViewController */,
+				84E767DF2BC9125D007D7C5A /* MessageViewController */,
+				84E767E22BC9125D007D7C5A /* NotificationViewController */,
+				84E767E72BC9125D007D7C5A /* TabBarController */,
+				84E767D92BC9125D007D7C5A /* AddPostViewController */,
 				84E767E62BC9125D007D7C5A /* HomeController.swift */,
 			);
 			path = HomeController;
@@ -374,7 +374,6 @@
 		84E767FA2BC91370007D7C5A /* MockData */ = {
 			isa = PBXGroup;
 			children = (
-				84E767FB2BC91370007D7C5A /* Post.swift */,
 			);
 			path = MockData;
 			sourceTree = "<group>";
@@ -552,7 +551,7 @@
 			isa = PBXGroup;
 			children = (
 				84E767CE2BC9125C007D7C5A /* Common */,
-				84E767D22BC9125D007D7C5A /* MatchingViewController */,
+				84E767E52BC9125D007D7C5A /* HomeController */,
 				84E767A72BC90F27007D7C5A /* Authentication */,
 				8A625D4429595F5E007F1E99 /* Example */,
 			);
@@ -627,6 +626,7 @@
 		8A625D4A29597DDE007F1E99 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				84E767FB2BC91370007D7C5A /* Post.swift */,
 				8A8F0570295D866300296354 /* Pokemon.swift */,
 			);
 			path = Entities;
@@ -792,6 +792,7 @@
 			files = (
 				84E767EA2BC9125D007D7C5A /* DatePickerViewController.xib in Resources */,
 				84E767EE2BC9125D007D7C5A /* MatchingView.xib in Resources */,
+				84E768092BCCBD42007D7C5A /* OnboardingViewController.xib in Resources */,
 				84E767EC2BC9125D007D7C5A /* MatchingViewController.xib in Resources */,
 				8A56A102295D3EA800F2287D /* ExampleCell.xib in Resources */,
 				84E767C62BC9117A007D7C5A /* RegisterViewController.xib in Resources */,
@@ -802,7 +803,6 @@
 				84E767F42BC9125D007D7C5A /* MessageViewController.xib in Resources */,
 				84E767CC2BC9117A007D7C5A /* LoginViewController.xib in Resources */,
 				84E767F02BC9125D007D7C5A /* AddPostViewController.xib in Resources */,
-				84E767C92BC9117A007D7C5A /* OnboardingViewController.xib in Resources */,
 				84E767F62BC9125D007D7C5A /* NotificationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,6 +12,7 @@ final class MatchingView: OverlayView {
         case Heart
         case Message
         case Share
+        case SeeMore
     }
     //MARK: - IBOutlets
     @IBOutlet private weak var matchingView: UIView!
@@ -53,6 +54,7 @@ final class MatchingView: OverlayView {
         matchingView.frame = self.bounds
         matchingView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         avatarImageView.customCorner(radius: avatarImageView.frame.height / 2)
+        tapSeeMore()
     }
 
     private func updateView() {
@@ -67,6 +69,11 @@ final class MatchingView: OverlayView {
         descriptionLabel.text = viewModel.description
     }
 
+    private func tapSeeMore() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.tapSeeMoreLabel))
+        seeMoreLabel.isUserInteractionEnabled = true
+        seeMoreLabel.addGestureRecognizer(gesture)
+    }
     //MARK: - IBAction
     @IBAction private func searchButtonTouchUpInside(_ sender: UIButton) {
         delegate?.view(self, needPerfom: Action.Search)
@@ -79,6 +86,11 @@ final class MatchingView: OverlayView {
     }
     @IBAction private func shareButtonTouchUpInside(_ sender: UIButton) {
         delegate?.view(self, needPerfom: Action.Share)
+    }
+
+    //MARK: - Objc Funtions
+    @objc private func tapSeeMoreLabel() {
+        delegate?.view(self, needPerfom: Action.SeeMore)
     }
 }
 

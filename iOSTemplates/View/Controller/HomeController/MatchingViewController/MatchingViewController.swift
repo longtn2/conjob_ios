@@ -1,14 +1,16 @@
 import UIKit
 import Koloda
+protocol MatchingViewControllerDelegate: AnyObject {
+    func viewController(_ view: MatchingViewController, needPerfom isHiden: Bool)
+}
 
 final class MatchingViewController: ViewController {
-    
     //MARK: - IBOutlets
     @IBOutlet private weak var kolodaView: KolodaView!
     
     //MARK: - Propeties
     var viewModel: MatchingViewModel?
-    
+    weak var delegate: MatchingViewControllerDelegate?
     //MARK: - Functions
     override func setupUI() {
         super.setupUI()
@@ -51,6 +53,13 @@ extension MatchingViewController: KolodaViewDelegate, KolodaViewDataSource {
 extension MatchingViewController: MatchingViewDelegate {
     func view(_ view: MatchingView, needPerfom action: MatchingView.Action) {
         switch action {
+        case .SeeMore:
+            let postDetail = PostDetailViewController()
+            postDetail.viewModel = PostDetailViewModel()
+            postDetail.viewModel?.postModel = viewModel?.viewModelForMatching(at: kolodaView.currentCardIndex)
+            postDetail.delegate = self
+            navigationController?.pushViewController(postDetail, animated: true)
+            delegate?.viewController(self, needPerfom: true)
         case .Search:
             print("Search")
             //Show search VC
@@ -63,6 +72,12 @@ extension MatchingViewController: MatchingViewDelegate {
         default:
             print("Share")
         }
+    }
+}
+
+extension MatchingViewController: PostDetailViewControllerDelegate {
+    func viewController(_ view: PostDetailViewController) {
+        delegate?.viewController(self, needPerfom: false)
     }
 }
 

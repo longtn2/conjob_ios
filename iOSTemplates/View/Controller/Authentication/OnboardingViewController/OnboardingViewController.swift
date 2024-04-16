@@ -39,6 +39,7 @@ final class OnboardingViewController: ViewController {
 
     @objc private func tapRegisterView(_ sender: UITapGestureRecognizer) {
         let regisVC = RegisterViewController()
+        regisVC.viewModel = RegisterViewModel()
         navigationController?.isNavigationBarHidden = false
         navigationController?.pushViewController(regisVC, animated: true)
     }

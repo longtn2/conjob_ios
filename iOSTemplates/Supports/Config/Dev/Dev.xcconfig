@@ -10,6 +10,6 @@ VERSION_NUMBER = 1.0.0
 
 // API
 //BASE_URL = https:\/\/pokeapi.co\/api
-BASE_URL = https:\/\/maggot-intent-cicada.ngrok-free.app
+BASE_URL = https:\/\/maggot-intent-cicada.ngrok-free.app\/api
 
-API_VERSION = v2
+API_VERSION = v1

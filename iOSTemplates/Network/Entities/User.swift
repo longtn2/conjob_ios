@@ -1,5 +1,5 @@
 import Foundation
-final class User: Decodable {
+final class User: Codable {
 
     // MARK: - Properties
     var email: String
@@ -12,7 +12,7 @@ final class User: Decodable {
     var avatar: String
     var token: String
     var refreshToken: String
-    var roles: [Role]
+//    var roles: [Role]
 
     enum CodingKeys: String, CodingKey {
         case email = "email"
@@ -25,7 +25,7 @@ final class User: Decodable {
         case dob = "dob"
         case address = "address"
         case avatar = "avatar"
-        case roles = "roles"
+//        case roles = "roles"
     }
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -39,28 +39,8 @@ final class User: Decodable {
         dob = try container.decodeIfPresent(String.self, forKey: .dob).unwrapped(or: "")
         avatar = try container.decodeIfPresent(String.self, forKey: .avatar).unwrapped(or: "")
         address = try container.decodeIfPresent(String.self, forKey: .address).unwrapped(or: "")
-        roles = try container.decodeIfPresent([Role].self, forKey: .roles).unwrapped(or: [])
+//        roles = try container.decodeIfPresent([Role].self, forKey: .roles).unwrapped(or: [])
     }
 
-}
-
-final class Role: Decodable {
-    //MARK: Propeties
-    var id: String
-    var roleName: String
-    var roleDescription: String
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case roleName = "roleName"
-        case roleDescription = "roleDescription"
-    }
-
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        id = try container.decodeIfPresent(String.self, forKey: .id).unwrapped(or: "")
-        roleName = try container.decodeIfPresent(String.self, forKey: .roleName).unwrapped(or: "")
-        roleDescription = try container.decodeIfPresent(String.self, forKey: .roleDescription).unwrapped(or: "")
-    }
 }
 

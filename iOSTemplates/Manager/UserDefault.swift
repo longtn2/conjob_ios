@@ -1,29 +1,32 @@
 import Foundation
 struct DefaultsKeys {
-    static let token = "token"
+    static let currentUser = "currentUser"
 }
-struct UserDefault {
-    
-    static let tokenKey = DefaultsKeys.token
-    private static let userDefault = UserDefaults.standard
-    
-    struct UserLogin {
-        let token: String
-        init(_ json: [String: String]) {
-            self.token = json[tokenKey] ?? ""
+
+class UserManage {
+    static let shared = UserManage()
+    func saveUserToUserDefaults(user: User?) {
+            do {
+                let encodedData = try JSONEncoder().encode(user)
+                UserDefaults.standard.set(encodedData, forKey: DefaultsKeys.currentUser)
+            } catch {
+                print("Error encoding Good: \(error.localizedDescription)")
+            }
         }
-    }
     
-    static func save(_ token: String){
-        userDefault.set([tokenKey: token],
-                        forKey: tokenKey)
-    }
-    
-    static func getToken()-> UserLogin {
-        return UserLogin((userDefault.value(forKey: tokenKey) as? [String: String]) ?? [:])
-    }
-    
-    static func clearUserData(){
-        userDefault.removeObject(forKey: tokenKey)
-    }
+    func getUserFromUserDefaults() -> User? {
+            if let savedData = UserDefaults.standard.data(forKey: DefaultsKeys.currentUser) {
+                do {
+                    let decodedGood = try JSONDecoder().decode(User.self, from: savedData)
+                    return decodedGood
+                } catch {
+                    print("Error decoding Good: \(error.localizedDescription)")
+                    return nil
+                }
+            }
+            return nil
+        }
+    func clearUserManager() {
+            UserDefaults.standard.removeObject(forKey: DefaultsKeys.currentUser)
+        }
 }

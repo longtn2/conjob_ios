@@ -20,8 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // MARK: - Private functions
 
     private func configWindow() {
-        let token = UserDefault.getToken().token
-        if !token.isEmpty  {
+        if UserManage.shared.getUserFromUserDefaults() != nil {
             let homeVC = HomeController()
             window?.rootViewController = homeVC
         } else {

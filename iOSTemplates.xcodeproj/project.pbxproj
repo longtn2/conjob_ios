@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		84A216582BCD34CD00CB8691 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A216572BCD34CC00CB8691 /* User.swift */; };
 		84A2165A2BCE0EFD00CB8691 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A216592BCE0EFD00CB8691 /* UserDefault.swift */; };
+		84A2165C2BCE231500CB8691 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2165B2BCE231400CB8691 /* AuthService.swift */; };
+		84A2165E2BCE23C500CB8691 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2165D2BCE23C500CB8691 /* Role.swift */; };
+		84A216602BCE263F00CB8691 /* APIAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2165F2BCE263F00CB8691 /* APIAuth.swift */; };
 		84E767C62BC9117A007D7C5A /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E767BC2BC9117A007D7C5A /* RegisterViewController.xib */; };
 		84E767C72BC9117A007D7C5A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E767BD2BC9117A007D7C5A /* RegisterViewController.swift */; };
 		84E767C82BC9117A007D7C5A /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E767BE2BC9117A007D7C5A /* RegisterViewModel.swift */; };
@@ -106,6 +109,9 @@
 		7EB0286623D74BD5DABEF9E6 /* Pods-iOSTemplates-iOSTemplatesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSTemplates-iOSTemplatesUITests.release.xcconfig"; path = "Target Support Files/Pods-iOSTemplates-iOSTemplatesUITests/Pods-iOSTemplates-iOSTemplatesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		84A216572BCD34CC00CB8691 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		84A216592BCE0EFD00CB8691 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		84A2165B2BCE231400CB8691 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		84A2165D2BCE23C500CB8691 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
+		84A2165F2BCE263F00CB8691 /* APIAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAuth.swift; sourceTree = "<group>"; };
 		84E767BC2BC9117A007D7C5A /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		84E767BD2BC9117A007D7C5A /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		84E767BE2BC9117A007D7C5A /* RegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
@@ -135,7 +141,7 @@
 		84E767FF2BC91391007D7C5A /* ValidationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationUtils.swift; sourceTree = "<group>"; };
 		84E768022BC913C2007D7C5A /* UIViewExtH.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtH.swift; sourceTree = "<group>"; };
 		84E768042BC913C8007D7C5A /* UIButonExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButonExt.swift; sourceTree = "<group>"; };
-		84E768082BCCBD42007D7C5A /* OnboardingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OnboardingViewController.xib; path = ../../../../../../../Documents/iOS/TemplateIOS/iOSTemplates/View/Controller/Authentication/OnboardingViewController/OnboardingViewController.xib; sourceTree = "<group>"; };
+		84E768082BCCBD42007D7C5A /* OnboardingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		8A05D5D72ACAA4CB004FE287 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		8A05D5D92ACAAB50004FE287 /* ResponseSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseSerializer.swift; sourceTree = "<group>"; };
 		8A56A0FF295D3EA800F2287D /* ExampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCell.swift; sourceTree = "<group>"; };
@@ -438,6 +444,7 @@
 			isa = PBXGroup;
 			children = (
 				8A5CC42E2ACD52E4007A555E /* APIPokemon.swift */,
+				84A2165F2BCE263F00CB8691 /* APIAuth.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -626,6 +633,7 @@
 				84E767FB2BC91370007D7C5A /* Post.swift */,
 				8A8F0570295D866300296354 /* Pokemon.swift */,
 				84A216572BCD34CC00CB8691 /* User.swift */,
+				84A2165D2BCE23C500CB8691 /* Role.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -634,6 +642,7 @@
 			isa = PBXGroup;
 			children = (
 				8A5CC42A2ACD48F8007A555E /* APIService.swift */,
+				84A2165B2BCE231400CB8691 /* AuthService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -969,6 +978,7 @@
 				8A5CC4322ACD649D007A555E /* AppConfiguration.swift in Sources */,
 				8A8F056B295D783900296354 /* UICollectionViewExt.swift in Sources */,
 				8A5CC42B2ACD48F8007A555E /* APIService.swift in Sources */,
+				84A2165E2BCE23C500CB8691 /* Role.swift in Sources */,
 				8A8F0571295D866300296354 /* Pokemon.swift in Sources */,
 				8A58F9D029753B620047D607 /* UIImageViewExt.swift in Sources */,
 				8A8F0567295D437800296354 /* ExampleCellVM.swift in Sources */,
@@ -980,10 +990,12 @@
 				8A625D562959807B007F1E99 /* OptionalExt.swift in Sources */,
 				8A625D5829598791007F1E99 /* StringExt.swift in Sources */,
 				8A90903129657824008218BD /* ExampleVM.swift in Sources */,
+				84A2165C2BCE231500CB8691 /* AuthService.swift in Sources */,
 				84E767CA2BC9117A007D7C5A /* OnboardingViewController.swift in Sources */,
 				8A8DA9B22ACFBBC20066C230 /* UIViewController.swift in Sources */,
 				8A625D0A2955685E007F1E99 /* SceneDelegate.swift in Sources */,
 				8A625D5029597F85007F1E99 /* BundleExt.swift in Sources */,
+				84A216602BCE263F00CB8691 /* APIAuth.swift in Sources */,
 				84E768002BC91391007D7C5A /* Constants.swift in Sources */,
 				84E767ED2BC9125D007D7C5A /* MatchingView.swift in Sources */,
 				8A90902C296577D3008218BD /* ExampleVC.swift in Sources */,

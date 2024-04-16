@@ -52,8 +52,8 @@ final class LoginViewController: ViewController {
             switch result {
             case .success:
                 let homeVC = HomeController()
-                self?.navigationController?.isNavigationBarHidden = true
-                self?.navigationController?.pushViewController(homeVC, animated: true)
+                this.navigationController?.isNavigationBarHidden = true
+                this.navigationController?.pushViewController(homeVC, animated: true)
             case .failure(let error):
                 this.alert(error: error)
             }

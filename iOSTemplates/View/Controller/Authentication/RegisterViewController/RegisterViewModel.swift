@@ -5,15 +5,20 @@ protocol CommonLogic {
     func registerHandler()
 }
 
-final class RegisterViewModel: CommonLogic {
-    func loginHandler(withEmail email: String, pass: String, completion: @escaping APICompletion<User>) {
-        
-    }
+final class RegisterViewModel {
     
-    var isRegister: Bool = true
+    //MARK: - Propeties
+    var isFirst: Bool = false
+    var isLast: Bool = false
+    var isPhone: Bool = false
+    var isDate: Bool = false
+    var isAddress: Bool = false
+    var isEmail: Bool = false
+    var isPass: Bool = false
     
-    func registerHandler() {
-        
+    //MARK: - Functions
+    func enableButton() -> Bool {
+       return (isFirst && isLast && isPhone && isDate && isAddress && isEmail && isPass)
     }
 }
 

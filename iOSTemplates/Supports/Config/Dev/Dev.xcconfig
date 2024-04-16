@@ -9,6 +9,7 @@ PRODUCT_BUNDLE_IDENTIFIER = vn.ml.iOSTemplates.dev
 VERSION_NUMBER = 1.0.0
 
 // API
-BASE_URL = https:\/\/pokeapi.co\/api
+//BASE_URL = https:\/\/pokeapi.co\/api
+BASE_URL = https:\/\/maggot-intent-cicada.ngrok-free.app
 
 API_VERSION = v2

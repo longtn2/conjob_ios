@@ -20,11 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // MARK: - Private functions
 
     private func configWindow() {
-        let currentUser = UserDefaults.standard
-        if currentUser.value(forKey: "currentUser") != nil {
+        let token = UserDefault.getToken().token
+        if !token.isEmpty  {
             let homeVC = HomeController()
-            let navController = UINavigationController(rootViewController: homeVC)
-            window?.rootViewController = navController
+            window?.rootViewController = homeVC
         } else {
             let onboardVC = OnboardingViewController()
             let navController = UINavigationController(rootViewController: onboardVC)

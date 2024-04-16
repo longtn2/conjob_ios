@@ -16,4 +16,10 @@ final class APIPokemon {
             completionHandler?(result)
         }
     }
+    
+    static func getUserLogin(withEmail email: String, password: String, completionHandler: APICompletion<User>?) -> Request? {
+        return NetworkingController.shared.performRequest(APIService.getUserLogin(email: email, password: password), for: User.self) { result in
+            completionHandler?(result)
+        }
+    }
 }

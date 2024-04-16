@@ -47,10 +47,17 @@ final class LoginViewController: ViewController {
         isShow = !isShow
     }
     @IBAction private func continueButtonTouchUpInside(_ sender: UIButton) {
-        viewModel?.loginHandler(withEmail: emailTextField.text ?? "", pass: passwordTextField.text ?? "")
-        let homeVC = HomeController()
-        navigationController?.isNavigationBarHidden = true
-        navigationController?.pushViewController(homeVC, animated: true)
+        viewModel?.loginHandler(withEmail: emailTextField.text ?? "", pass: passwordTextField.text ?? "", completion: { [weak self] result in
+            guard let this = self else { return }
+            switch result {
+            case .success:
+                let homeVC = HomeController()
+                self?.navigationController?.isNavigationBarHidden = true
+                self?.navigationController?.pushViewController(homeVC, animated: true)
+            case .failure(let error):
+                this.alert(error: error)
+            }
+        })
     }
 }
 //MARK: UITextFieldDelegate

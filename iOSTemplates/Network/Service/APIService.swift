@@ -4,13 +4,14 @@ import Alamofire
 enum APIService {
     case listPokemons(limit: Int, offset: Int)
     case getPostList(limit: Int, offset: Int)
+    case getUserLogin(email: String, password: String)
 }
 
 extension APIService: TargetType {
 
     var baseURL: String {
         guard let baseURLStr = AppConfiguration.infoForKey(.baseURL) else { fatalError("Missing baseURL") }
-        return baseURLStr / version
+        return baseURLStr /* / version */
     }
 
     var version: String {
@@ -26,6 +27,8 @@ extension APIService: TargetType {
             return "pokemon"
         case .getPostList:
             return "postList"
+        case .getUserLogin:
+            return "login"
         }
     }
 
@@ -35,6 +38,8 @@ extension APIService: TargetType {
             return .get
         case .getPostList:
             return .get
+        case .getUserLogin:
+            return .post
         }
     }
 
@@ -44,6 +49,8 @@ extension APIService: TargetType {
             return ["limit": limit, "offset": offset]
         case .getPostList(let limit, let offset):
             return ["limit": limit, "offset": offset]
+        case .getUserLogin(let email, let password):
+            return ["email": email, "password": password]
         }
     }
 }

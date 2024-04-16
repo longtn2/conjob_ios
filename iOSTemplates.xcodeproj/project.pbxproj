@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84A216582BCD34CD00CB8691 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A216572BCD34CC00CB8691 /* User.swift */; };
+		84A2165A2BCE0EFD00CB8691 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A216592BCE0EFD00CB8691 /* UserDefault.swift */; };
 		84E767C62BC9117A007D7C5A /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E767BC2BC9117A007D7C5A /* RegisterViewController.xib */; };
 		84E767C72BC9117A007D7C5A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E767BD2BC9117A007D7C5A /* RegisterViewController.swift */; };
 		84E767C82BC9117A007D7C5A /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E767BE2BC9117A007D7C5A /* RegisterViewModel.swift */; };
@@ -102,6 +104,8 @@
 		70CD2FC8403890DA7E5606E9 /* Pods-iOSTemplates-iOSTemplatesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSTemplates-iOSTemplatesUITests.debug.xcconfig"; path = "Target Support Files/Pods-iOSTemplates-iOSTemplatesUITests/Pods-iOSTemplates-iOSTemplatesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7936695A4008933DB12AF0FD /* Pods-iOSTemplates-iOSTemplatesUITests.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSTemplates-iOSTemplatesUITests.dev.xcconfig"; path = "Target Support Files/Pods-iOSTemplates-iOSTemplatesUITests/Pods-iOSTemplates-iOSTemplatesUITests.dev.xcconfig"; sourceTree = "<group>"; };
 		7EB0286623D74BD5DABEF9E6 /* Pods-iOSTemplates-iOSTemplatesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSTemplates-iOSTemplatesUITests.release.xcconfig"; path = "Target Support Files/Pods-iOSTemplates-iOSTemplatesUITests/Pods-iOSTemplates-iOSTemplatesUITests.release.xcconfig"; sourceTree = "<group>"; };
+		84A216572BCD34CC00CB8691 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		84A216592BCE0EFD00CB8691 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		84E767BC2BC9117A007D7C5A /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		84E767BD2BC9117A007D7C5A /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		84E767BE2BC9117A007D7C5A /* RegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
@@ -442,6 +446,7 @@
 			isa = PBXGroup;
 			children = (
 				8A5CC4312ACD649D007A555E /* AppConfiguration.swift */,
+				84A216592BCE0EFD00CB8691 /* UserDefault.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -620,6 +625,7 @@
 			children = (
 				84E767FB2BC91370007D7C5A /* Post.swift */,
 				8A8F0570295D866300296354 /* Pokemon.swift */,
+				84A216572BCD34CC00CB8691 /* User.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -940,6 +946,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A216582BCD34CD00CB8691 /* User.swift in Sources */,
 				8A56A101295D3EA800F2287D /* ExampleCell.swift in Sources */,
 				84E767C82BC9117A007D7C5A /* RegisterViewModel.swift in Sources */,
 				84E768052BC913C8007D7C5A /* UIButonExt.swift in Sources */,
@@ -981,6 +988,7 @@
 				84E767ED2BC9125D007D7C5A /* MatchingView.swift in Sources */,
 				8A90902C296577D3008218BD /* ExampleVC.swift in Sources */,
 				84E767F52BC9125D007D7C5A /* MessageViewController.swift in Sources */,
+				84A2165A2BCE0EFD00CB8691 /* UserDefault.swift in Sources */,
 				84E767F72BC9125D007D7C5A /* NotificationViewController.swift in Sources */,
 				8A625D5229597FB0007F1E99 /* CollectionExt.swift in Sources */,
 				84E767EF2BC9125D007D7C5A /* MatchingViewModel.swift in Sources */,

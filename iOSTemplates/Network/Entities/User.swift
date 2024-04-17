@@ -12,7 +12,7 @@ final class User: Codable {
     var avatar: String
     var token: String
     var refreshToken: String
-//    var roles: [Role]
+    var roles: [Role]
 
     enum CodingKeys: String, CodingKey {
         case email = "email"
@@ -25,7 +25,7 @@ final class User: Codable {
         case dob = "dob"
         case address = "address"
         case avatar = "avatar"
-//        case roles = "roles"
+        case roles = "roles"
     }
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -39,7 +39,7 @@ final class User: Codable {
         dob = try container.decodeIfPresent(String.self, forKey: .dob).unwrapped(or: "")
         avatar = try container.decodeIfPresent(String.self, forKey: .avatar).unwrapped(or: "")
         address = try container.decodeIfPresent(String.self, forKey: .address).unwrapped(or: "")
-//        roles = try container.decodeIfPresent([Role].self, forKey: .roles).unwrapped(or: [])
+        roles = try container.decodeIfPresent([Role].self, forKey: .roles).unwrapped(or: [])
     }
 
 }

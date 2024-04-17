@@ -16,6 +16,7 @@
                 <outlet property="continueButton" destination="f3U-PZ-Ab6" id="RWs-8t-f5R"/>
                 <outlet property="dateOfBirthButton" destination="lH5-jG-ynS" id="ae2-Ct-0S9"/>
                 <outlet property="dateOfBirthTextField" destination="few-hx-CXT" id="R1U-sY-YPZ"/>
+                <outlet property="dayOfBirthView" destination="fRU-qI-5P4" id="4YS-tA-rCs"/>
                 <outlet property="emailTextField" destination="LUC-QU-orj" id="oIN-8y-5fO"/>
                 <outlet property="errorAddressLabel" destination="3gp-uS-Ado" id="Z0R-6J-Teg"/>
                 <outlet property="errorDateLabel" destination="ynV-oJ-YLY" id="0su-lB-LiU"/>
@@ -28,6 +29,7 @@
                 <outlet property="genderButton" destination="8MU-1Y-1rc" id="dyA-k8-AjO"/>
                 <outlet property="lastNameTextField" destination="S9p-oS-nE5" id="DkC-Be-003"/>
                 <outlet property="passwordTextField" destination="Uam-q0-TlL" id="7CO-Zl-V1K"/>
+                <outlet property="passwordView" destination="OhD-S0-817" id="Hhi-t8-792"/>
                 <outlet property="phoneTextField" destination="EZP-c1-ZnW" id="9yg-JV-Lwc"/>
                 <outlet property="roleButton" destination="AHN-v4-iuI" id="fIS-vz-Tyc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -186,11 +188,11 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="eSh-NX-b3f">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fRU-qI-5P4">
                                             <rect key="frame" x="0.0" y="24" width="288" height="48"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose Date Of Birth" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="few-hx-CXT">
-                                                    <rect key="frame" x="0.0" y="0.0" width="248" height="48"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choose Date Of Birth" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="few-hx-CXT">
+                                                    <rect key="frame" x="7" y="0.0" width="231" height="48"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="48" id="UQg-mp-ztu"/>
                                                     </constraints>
@@ -198,11 +200,12 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lH5-jG-ynS">
-                                                    <rect key="frame" x="254" y="0.0" width="34" height="48"/>
+                                                    <rect key="frame" x="246" y="7" width="34" height="34"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" constant="34" id="e6p-4a-0dX"/>
                                                         <constraint firstAttribute="width" constant="34" id="wHu-CE-voQ"/>
                                                     </constraints>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="7" maxX="2.2250738585072014e-308" maxY="7"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="icon_calendar">
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                                     </state>
@@ -211,11 +214,16 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="lH5-jG-ynS" secondAttribute="trailing" id="Mne-VA-srV"/>
-                                                <constraint firstItem="lH5-jG-ynS" firstAttribute="centerY" secondItem="few-hx-CXT" secondAttribute="centerY" id="aUJ-CE-kp5"/>
+                                                <constraint firstAttribute="trailing" secondItem="lH5-jG-ynS" secondAttribute="trailing" constant="8" id="3h7-dg-hnf"/>
+                                                <constraint firstItem="few-hx-CXT" firstAttribute="leading" secondItem="fRU-qI-5P4" secondAttribute="leading" constant="7" id="O00-x4-y5V"/>
+                                                <constraint firstItem="lH5-jG-ynS" firstAttribute="centerY" secondItem="fRU-qI-5P4" secondAttribute="centerY" id="bpn-2T-BPD"/>
+                                                <constraint firstAttribute="height" constant="48" id="gGT-xc-ufi"/>
+                                                <constraint firstItem="few-hx-CXT" firstAttribute="top" secondItem="fRU-qI-5P4" secondAttribute="top" id="kWl-Fx-dt4"/>
+                                                <constraint firstItem="lH5-jG-ynS" firstAttribute="leading" secondItem="few-hx-CXT" secondAttribute="trailing" constant="8" id="usH-h7-So1"/>
                                             </constraints>
-                                        </stackView>
+                                        </view>
                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynV-oJ-YLY">
                                             <rect key="frame" x="0.0" y="72" width="288" height="0.0"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -224,7 +232,6 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="eSh-NX-b3f" secondAttribute="trailing" id="GfL-xB-Edv"/>
                                         <constraint firstAttribute="trailing" secondItem="ynV-oJ-YLY" secondAttribute="trailing" id="kKV-Ub-cGw"/>
                                     </constraints>
                                 </stackView>
@@ -323,14 +330,38 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uam-q0-TlL">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OhD-S0-817">
                                             <rect key="frame" x="0.0" y="24" width="288" height="48"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uam-q0-TlL">
+                                                    <rect key="frame" x="7" y="0.0" width="231" height="48"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWr-FW-XWQ">
+                                                    <rect key="frame" x="246" y="7" width="34" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="34" id="QTS-IW-ZDM"/>
+                                                        <constraint firstAttribute="width" constant="34" id="yBT-ou-aJz"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="icon_hide"/>
+                                                    <connections>
+                                                        <action selector="showOrHideButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="VWi-ol-qxs"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="48" id="f7R-Ni-rU5"/>
+                                                <constraint firstAttribute="height" constant="48" id="5fd-b3-tF1"/>
+                                                <constraint firstItem="Uam-q0-TlL" firstAttribute="top" secondItem="OhD-S0-817" secondAttribute="top" id="5uR-zw-mzb"/>
+                                                <constraint firstItem="jWr-FW-XWQ" firstAttribute="leading" secondItem="Uam-q0-TlL" secondAttribute="trailing" constant="8" id="Ixg-qY-8Kg"/>
+                                                <constraint firstAttribute="trailing" secondItem="jWr-FW-XWQ" secondAttribute="trailing" constant="8" id="Soh-He-Iey"/>
+                                                <constraint firstItem="jWr-FW-XWQ" firstAttribute="centerY" secondItem="OhD-S0-817" secondAttribute="centerY" id="WfD-VB-g7C"/>
+                                                <constraint firstAttribute="bottom" secondItem="Uam-q0-TlL" secondAttribute="bottom" id="doL-ds-Sj0"/>
+                                                <constraint firstItem="Uam-q0-TlL" firstAttribute="leading" secondItem="OhD-S0-817" secondAttribute="leading" constant="7" id="wa7-DJ-z0s"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
+                                        </view>
                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghD-3C-tyh">
                                             <rect key="frame" x="0.0" y="72" width="288" height="0.0"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -413,12 +444,13 @@
                 <constraint firstItem="n0p-Jo-d8k" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="UwF-md-UqG"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="n0p-Jo-d8k" secondAttribute="bottom" id="iVR-yp-iZu"/>
             </constraints>
-            <point key="canvasLocation" x="35.877862595419849" y="-11.267605633802818"/>
+            <point key="canvasLocation" x="35.625" y="-11.619718309859156"/>
         </view>
     </objects>
     <resources>
         <image name="icon_calendar" width="48" height="48"/>
         <image name="icon_check" width="50" height="50"/>
+        <image name="icon_hide" width="30" height="30"/>
         <namedColor name="App Main Color 1">
             <color red="0.77300000190734863" green="0.035000000149011612" blue="0.12200000137090683" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

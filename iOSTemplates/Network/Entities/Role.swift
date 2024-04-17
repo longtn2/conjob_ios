@@ -1,7 +1,7 @@
 import Foundation
-class Role: Decodable {
+class Role: Codable {
     //MARK: Propeties
-    var id: String?
+    var id: Int
     var roleName: String?
     var roleDescription: String?
 
@@ -13,7 +13,7 @@ class Role: Decodable {
 
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        id = try container.decodeIfPresent(String.self, forKey: .id).unwrapped(or: "")
+        id = try container.decodeIfPresent(Int.self, forKey: .id).unwrapped(or: 0)
         roleName = try container.decodeIfPresent(String.self, forKey: .roleName).unwrapped(or: "")
         roleDescription = try container.decodeIfPresent(String.self, forKey: .roleDescription).unwrapped(or: "")
     }

@@ -12,6 +12,10 @@
 		84A2165C2BCE231500CB8691 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2165B2BCE231400CB8691 /* AuthService.swift */; };
 		84A2165E2BCE23C500CB8691 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2165D2BCE23C500CB8691 /* Role.swift */; };
 		84A216602BCE263F00CB8691 /* APIAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2165F2BCE263F00CB8691 /* APIAuth.swift */; };
+		84A216642BCE734100CB8691 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A216622BCE734100CB8691 /* LoadingViewController.swift */; };
+		84A216652BCE734100CB8691 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A216632BCE734100CB8691 /* LoadingViewController.xib */; };
+		84A216672BCE744500CB8691 /* LoadingUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A216662BCE744500CB8691 /* LoadingUtils.swift */; };
+		84A216692BCE769900CB8691 /* LoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A216682BCE769900CB8691 /* LoadingViewModel.swift */; };
 		84E767C62BC9117A007D7C5A /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E767BC2BC9117A007D7C5A /* RegisterViewController.xib */; };
 		84E767C72BC9117A007D7C5A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E767BD2BC9117A007D7C5A /* RegisterViewController.swift */; };
 		84E767C82BC9117A007D7C5A /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E767BE2BC9117A007D7C5A /* RegisterViewModel.swift */; };
@@ -112,6 +116,10 @@
 		84A2165B2BCE231400CB8691 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		84A2165D2BCE23C500CB8691 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		84A2165F2BCE263F00CB8691 /* APIAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAuth.swift; sourceTree = "<group>"; };
+		84A216622BCE734100CB8691 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		84A216632BCE734100CB8691 /* LoadingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
+		84A216662BCE744500CB8691 /* LoadingUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingUtils.swift; sourceTree = "<group>"; };
+		84A216682BCE769900CB8691 /* LoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewModel.swift; sourceTree = "<group>"; };
 		84E767BC2BC9117A007D7C5A /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		84E767BD2BC9117A007D7C5A /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		84E767BE2BC9117A007D7C5A /* RegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
@@ -247,6 +255,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		84A216612BCE732200CB8691 /* LoadingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84A216622BCE734100CB8691 /* LoadingViewController.swift */,
+				84A216632BCE734100CB8691 /* LoadingViewController.xib */,
+				84A216682BCE769900CB8691 /* LoadingViewModel.swift */,
+			);
+			path = LoadingViewController;
+			sourceTree = "<group>";
+		};
 		84E767A72BC90F27007D7C5A /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +307,7 @@
 		84E767CE2BC9125C007D7C5A /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				84A216612BCE732200CB8691 /* LoadingViewController */,
 				84E767CF2BC9125C007D7C5A /* DatePikerViewController */,
 			);
 			path = Common;
@@ -393,6 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				84E767FF2BC91391007D7C5A /* ValidationUtils.swift */,
+				84A216662BCE744500CB8691 /* LoadingUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -800,6 +820,7 @@
 				84E767EA2BC9125D007D7C5A /* DatePickerViewController.xib in Resources */,
 				84E767EE2BC9125D007D7C5A /* MatchingView.xib in Resources */,
 				84E768092BCCBD42007D7C5A /* OnboardingViewController.xib in Resources */,
+				84A216652BCE734100CB8691 /* LoadingViewController.xib in Resources */,
 				84E767EC2BC9125D007D7C5A /* MatchingViewController.xib in Resources */,
 				8A56A102295D3EA800F2287D /* ExampleCell.xib in Resources */,
 				84E767C62BC9117A007D7C5A /* RegisterViewController.xib in Resources */,
@@ -958,6 +979,7 @@
 				84A216582BCD34CD00CB8691 /* User.swift in Sources */,
 				8A56A101295D3EA800F2287D /* ExampleCell.swift in Sources */,
 				84E767C82BC9117A007D7C5A /* RegisterViewModel.swift in Sources */,
+				84A216692BCE769900CB8691 /* LoadingViewModel.swift in Sources */,
 				84E768052BC913C8007D7C5A /* UIButonExt.swift in Sources */,
 				84E767F82BC9125D007D7C5A /* HomeController.swift in Sources */,
 				8A5CC4292ACD2281007A555E /* DataExt.swift in Sources */,
@@ -975,9 +997,11 @@
 				8A5CC42F2ACD52E4007A555E /* APIPokemon.swift in Sources */,
 				84E767E92BC9125D007D7C5A /* DatePickerViewController.swift in Sources */,
 				8A625D082955685E007F1E99 /* AppDelegate.swift in Sources */,
+				84A216672BCE744500CB8691 /* LoadingUtils.swift in Sources */,
 				8A5CC4322ACD649D007A555E /* AppConfiguration.swift in Sources */,
 				8A8F056B295D783900296354 /* UICollectionViewExt.swift in Sources */,
 				8A5CC42B2ACD48F8007A555E /* APIService.swift in Sources */,
+				84A216642BCE734100CB8691 /* LoadingViewController.swift in Sources */,
 				84A2165E2BCE23C500CB8691 /* Role.swift in Sources */,
 				8A8F0571295D866300296354 /* Pokemon.swift in Sources */,
 				8A58F9D029753B620047D607 /* UIImageViewExt.swift in Sources */,

@@ -1,6 +1,5 @@
 import Foundation
 final class LoginViewModel: CommonLogic {
-    var isReister: Bool = false
     var user: User?
     func loginHandler(withEmail email: String, pass: String, completion: @escaping APICompletion<User>) {
         APIAuth.getUserLogin(withEmail: email, password: pass) { response in

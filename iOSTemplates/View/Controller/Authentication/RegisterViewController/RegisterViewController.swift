@@ -20,7 +20,9 @@ final class RegisterViewController: ViewController {
     @IBOutlet private weak var dateOfBirthButton: UIButton!
     @IBOutlet private weak var roleButton: UIButton!
     @IBOutlet private weak var genderButton: UIButton!
-
+    @IBOutlet private weak var passwordView: UIView!
+    @IBOutlet private weak var dayOfBirthView: UIView!
+    
     //MARK: Propeties
     var viewModel: RegisterViewModel?
     private enum Const {
@@ -49,6 +51,9 @@ final class RegisterViewController: ViewController {
         setupUINavigationBar(withtitle: "", left: image, right: UIImage())
         setupMenuChooseGender()
         setupMenuChooseRole()
+        let color = UIColor.hexStringToUIColor(hex: "#EBEBEB")
+        dayOfBirthView.customCorner(with: 1, radius: 5, color: color)
+        passwordView.customCorner(with: 1, radius: 5, color: color)
     }
 
     private func setupMenuChooseGender() {
@@ -105,6 +110,12 @@ final class RegisterViewController: ViewController {
         datePickerVC.modalPresentationStyle = .overCurrentContext
         datePickerVC.delegate = self
         self.present(datePickerVC, animated: true)
+    }
+    @IBAction private func showOrHideButtonTouchUpInside(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        let image = UIImage(named: sender.isSelected ? NameIcon.icon_show : NameIcon.icon_hide)
+        sender.setImage(image, for: .normal)
+        passwordTextField.isSecureTextEntry = !sender.isSelected
     }
     @IBAction private func continueButtonTouchUpInside(_ sender: UIButton) {
         let homeVC = HomeController()

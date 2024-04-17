@@ -31,7 +31,6 @@ final class OnboardingViewController: ViewController {
     @objc private func tapLoginView(_ sender: UITapGestureRecognizer) {
         let loginVC = LoginViewController()
         let viewModel = LoginViewModel()
-        viewModel.isReister = false
         loginVC.viewModel = viewModel
         navigationController?.isNavigationBarHidden = false
         navigationController?.pushViewController(loginVC, animated: true)

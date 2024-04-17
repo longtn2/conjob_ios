@@ -3,8 +3,8 @@ struct DefaultsKeys {
     static let currentUser = "currentUser"
 }
 
-class UserManage {
-    static let shared = UserManage()
+class UserManager {
+    static let shared = UserManager()
     func saveUserToUserDefaults(user: User?) {
             do {
                 let encodedData = try JSONEncoder().encode(user)

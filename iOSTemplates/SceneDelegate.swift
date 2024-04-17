@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // MARK: - Private functions
 
     private func configWindow() {
-        if UserManage.shared.getUserFromUserDefaults() != nil {
+        if UserManager.shared.getUserFromUserDefaults() != nil {
             let homeVC = HomeController()
             window?.rootViewController = homeVC
         } else {

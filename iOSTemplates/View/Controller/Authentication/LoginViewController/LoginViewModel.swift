@@ -7,7 +7,7 @@ final class LoginViewModel: CommonLogic {
             case .success(let user):
                 if let user = user {
                     self.user = user
-                    UserManage.shared.saveUserToUserDefaults(user: user)
+                    UserManager.shared.saveUserToUserDefaults(user: user)
                 }
                 completion(.success(nil))
             case .failure(let error):

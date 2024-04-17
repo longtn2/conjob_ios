@@ -46,18 +46,17 @@ final class LoginViewController: ViewController {
         passwordTextField.isSecureTextEntry = !sender.isSelected
     }
     @IBAction private func continueButtonTouchUpInside(_ sender: UIButton) {
-        LoadingUtils.share.showLoadingView(isLoading: true)
+        LoadingUtils.shared().showLoadingView(isLoading: true)
         viewModel?.loginHandler(withEmail: emailTextField.text ?? "", pass: passwordTextField.text ?? "", completion: { [weak self] result in
+            LoadingUtils.shared().showLoadingView(isLoading: false)
             guard let this = self else { return }
             switch result {
             case .success:
-                LoadingUtils.share.showLoadingView(isLoading: false)
                 let homeVC = HomeController()
                 this.navigationController?.isNavigationBarHidden = true
                 this.navigationController?.pushViewController(homeVC, animated: true)
             case .failure(let error):
                 this.alert(error: error)
-                LoadingUtils.share.showLoadingView(isLoading: false)
             }
         })
     }

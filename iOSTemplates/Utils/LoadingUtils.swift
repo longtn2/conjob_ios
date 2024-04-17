@@ -3,7 +3,11 @@ import UIKit
 
 class LoadingUtils {
     
-    static var share = LoadingUtils()
+    private static var loading = LoadingUtils()
+    
+    static func shared() -> LoadingUtils {
+        return loading
+    }
     
     func showLoadingView(isLoading: Bool) {
         DispatchQueue.main.async {
@@ -12,10 +16,8 @@ class LoadingUtils {
             loadingVc.viewModel?.isLoading = isLoading
             loadingVc.modalPresentationStyle = .overCurrentContext
             
-            // Lấy ra window chính của ứng dụng
             let keyWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow })
             
-            // Nếu tìm thấy window chính, thực hiện hiển thị loadingVc trên topController hiện tại
             if var topController = keyWindow?.rootViewController {
                 while let presentedViewController = topController.presentedViewController {
                     topController = presentedViewController

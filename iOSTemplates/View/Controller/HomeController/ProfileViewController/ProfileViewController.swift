@@ -11,7 +11,7 @@ class ProfileViewController: ViewController {
      }
     //MARK: -IBActions
     @IBAction private func logOutButtonTouchUpInside(_ sender: UIButton) {
-        UserManage.shared.clearUserManager()
+        UserManager.shared.clearUserManager()
         setRootWithNavigationItemTo(OnboardingViewController())
     }
     

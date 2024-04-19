@@ -8,11 +8,11 @@ protocol MatchingViewDelegate: AnyObject {
 final class MatchingView: OverlayView {
     //MARK: - Enum
     enum Action {
-        case Search
-        case Heart
-        case Message
-        case Share
-        case SeeMore
+        case search
+        case heart
+        case message
+        case share
+        case seeMore
     }
     //MARK: - IBOutlets
     @IBOutlet private weak var matchingView: UIView!
@@ -76,21 +76,21 @@ final class MatchingView: OverlayView {
     }
     //MARK: - IBAction
     @IBAction private func searchButtonTouchUpInside(_ sender: UIButton) {
-        delegate?.view(self, needPerfom: Action.Search)
+        delegate?.view(self, needPerfom: Action.search)
     }
     @IBAction private func heartButtonTouchUpInside(_ sender: UIButton) {
-        delegate?.view(self, needPerfom: Action.Heart)
+        delegate?.view(self, needPerfom: Action.heart)
     }
     @IBAction private func messageButtonTouchUpInside(_ sender: UIButton) {
-        delegate?.view(self, needPerfom: Action.Message)
+        delegate?.view(self, needPerfom: Action.message)
     }
     @IBAction private func shareButtonTouchUpInside(_ sender: UIButton) {
-        delegate?.view(self, needPerfom: Action.Share)
+        delegate?.view(self, needPerfom: Action.share)
     }
 
     //MARK: - Objc Funtions
     @objc private func tapSeeMoreLabel() {
-        delegate?.view(self, needPerfom: Action.SeeMore)
+        delegate?.view(self, needPerfom: Action.seeMore)
     }
 }
 

@@ -10,4 +10,7 @@ import Foundation
 
 class PostDetailViewModel {
     var postModel: Post?
+    init(postModel: Post? = nil) {
+        self.postModel = postModel
+    }
 }

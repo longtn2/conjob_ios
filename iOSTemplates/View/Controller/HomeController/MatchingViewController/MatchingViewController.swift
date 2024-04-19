@@ -1,10 +1,15 @@
 import UIKit
 import Koloda
 protocol MatchingViewControllerDelegate: AnyObject {
-    func viewController(_ view: MatchingViewController, needPerfom isHiden: Bool)
+    func viewController(_ view: MatchingViewController, needPerfom action: MatchingViewController.TabBar)
 }
 
 final class MatchingViewController: ViewController {
+    //MARK: - Enum
+    enum TabBar {
+        case isHide
+        case isShow
+    }
     //MARK: - IBOutlets
     @IBOutlet private weak var kolodaView: KolodaView!
     
@@ -53,20 +58,20 @@ extension MatchingViewController: KolodaViewDelegate, KolodaViewDataSource {
 extension MatchingViewController: MatchingViewDelegate {
     func view(_ view: MatchingView, needPerfom action: MatchingView.Action) {
         switch action {
-        case .SeeMore:
+        case .seeMore:
             let postDetail = PostDetailViewController()
-            postDetail.viewModel = PostDetailViewModel()
-            postDetail.viewModel?.postModel = viewModel?.viewModelForMatching(at: kolodaView.currentCardIndex)
+            let post = viewModel?.viewModelForMatching(at: kolodaView.currentCardIndex)
+            postDetail.viewModel = PostDetailViewModel(postModel: post)
             postDetail.delegate = self
             navigationController?.pushViewController(postDetail, animated: true)
-            delegate?.viewController(self, needPerfom: true)
-        case .Search:
+            delegate?.viewController(self, needPerfom: TabBar.isHide)
+        case .search:
             print("Search")
             //Show search VC
-        case .Heart:
+        case .heart:
             print("Heart")
             //Call api
-        case .Message:
+        case .message:
             print("Message")
             //Call api
         default:
@@ -77,7 +82,7 @@ extension MatchingViewController: MatchingViewDelegate {
 
 extension MatchingViewController: PostDetailViewControllerDelegate {
     func viewController(_ view: PostDetailViewController) {
-        delegate?.viewController(self, needPerfom: false)
+        delegate?.viewController(self, needPerfom: TabBar.isShow)
     }
 }
 

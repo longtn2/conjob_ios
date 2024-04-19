@@ -56,7 +56,12 @@ extension HomeController: BottomTabBarViewDelegate {
 }
 
 extension HomeController: MatchingViewControllerDelegate {
-    func viewController(_ view: MatchingViewController, needPerfom isHiden: Bool) {
-        toggle(hide: isHiden)
+    func viewController(_ view: MatchingViewController, needPerfom action: MatchingViewController.TabBar) {
+        switch action {
+        case .isHide:
+            toggle(hide: true)
+        default:
+            toggle(hide: false)
+        }
     }
 }

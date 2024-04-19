@@ -2,6 +2,7 @@ import Foundation
 import Alamofire
 enum AuthService {
     case getUserLogin(email: String, password: String)
+    case userRegister(user: UserRegister)
 }
 
 extension AuthService: TargetType {
@@ -21,12 +22,16 @@ extension AuthService: TargetType {
         switch self {
         case .getUserLogin:
             return "auth/login"
+        case .userRegister:
+            return "auth/register"
         }
     }
 
     var method: HTTPMethod {
         switch self {
         case .getUserLogin:
+            return .post
+        case .userRegister:
             return .post
         }
     }
@@ -35,6 +40,17 @@ extension AuthService: TargetType {
         switch self {
         case .getUserLogin(let email, let password):
             return ["email": email, "password": password]
+        case .userRegister(let user):
+            return ["email": user.email ?? "",
+                    "password": user.password ?? "",
+                    "first_name": user.firstName ?? "",
+                    "last_name": user.lastName ?? "",
+                    "phone_number": user.phoneNumber ?? "",
+                    "gender": user.gender ?? "",
+                    "dob": user.dob ?? "",
+                    "address": user.address ?? "",
+                    "avatar": user.avatar ?? ""
+                ]
         }
     }
 }

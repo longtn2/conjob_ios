@@ -2,11 +2,10 @@ import Foundation
 
 protocol CommonLogic {
     func loginHandler(withEmail email: String, pass: String, completion: @escaping APICompletion<User>)
-    func registerHandler()
+    func registerHandler(with user: UserRegister, completion: @escaping APICompletion<UserRegister>)
 }
 
-final class RegisterViewModel {
-    
+final class RegisterViewModel: CommonLogic {
     //MARK: - Propeties
     var isFirst: Bool = false
     var isLast: Bool = false
@@ -19,6 +18,21 @@ final class RegisterViewModel {
     //MARK: - Functions
     func enableButton() -> Bool {
        return (isFirst && isLast && isPhone && isDate && isAddress && isEmail && isPass)
+    }
+    
+    func loginHandler(withEmail email: String, pass: String, completion: @escaping APICompletion<User>) {
+        
+    }
+    
+    func registerHandler(with user: UserRegister, completion: @escaping APICompletion<UserRegister>) {
+        APIAuth.userRegister(user: user) {  response in
+            switch response {
+            case .success(let user):
+                completion(.success(nil))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
 }
 

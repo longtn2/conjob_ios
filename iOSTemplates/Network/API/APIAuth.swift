@@ -7,4 +7,10 @@ final class APIAuth {
             completionHandler?(result)
         }
     }
+
+    static func userRegister(user: UserRegister, completionHandler: APICompletion<UserRegister>?) -> Request? {
+        return NetworkingController.shared.performRequest(AuthService.userRegister(user: user), for: UserRegister.self) { result in
+            completionHandler?(result)
+        }
+    }
 }

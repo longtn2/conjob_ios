@@ -15,7 +15,7 @@ final class LoginViewModel: CommonLogic {
             }
         }
     }
-    func registerHandler() {
-
+    
+    func registerHandler(with user: UserRegister, completion: @escaping APICompletion<UserRegister>) {
     }
 }

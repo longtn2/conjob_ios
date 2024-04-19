@@ -118,9 +118,30 @@ final class RegisterViewController: ViewController {
         passwordTextField.isSecureTextEntry = !sender.isSelected
     }
     @IBAction private func continueButtonTouchUpInside(_ sender: UIButton) {
-        let homeVC = HomeController()
-        navigationController?.isNavigationBarHidden = true
-        navigationController?.pushViewController(homeVC, animated: true)
+        LoadingUtils.shared().showLoadingView(isLoading: true)
+        let user = UserRegister(password: passwordTextField.text,
+                                firstName: firstNameTextField.text,
+                                lastName: lastNameTextField.text,
+                                email: emailTextField.text,
+                                phoneNumber: phoneTextField.text,
+                                gender: "male",
+                                dob: dateOfBirthTextField.text,
+                                address: addressTextField.text,
+                                avatar: "")
+        viewModel?.registerHandler(with: user, completion: { [weak self] result in
+            LoadingUtils.shared().showLoadingView(isLoading: false)
+                guard let this = self else { return }
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success:
+                        let loginVC = LoginViewController()
+                        this.navigationController?.isNavigationBarHidden = true
+                        this.navigationController?.pushViewController(loginVC, animated: true)
+                    case .failure(let error):
+                        this.alert(error: error)
+                    }
+                }
+        })
     }
 
     private func showError(_ label: UILabel, testErr: String, check: Bool = false) {

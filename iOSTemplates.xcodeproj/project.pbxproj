@@ -41,7 +41,6 @@
 		84E768012BC91391007D7C5A /* ValidationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E767FF2BC91391007D7C5A /* ValidationUtils.swift */; };
 		84E768032BC913C2007D7C5A /* UIViewExtH.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E768022BC913C2007D7C5A /* UIViewExtH.swift */; };
 		84E768052BC913C8007D7C5A /* UIButonExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E768042BC913C8007D7C5A /* UIButonExt.swift */; };
-		84E768092BCCBD42007D7C5A /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E768082BCCBD42007D7C5A /* OnboardingViewController.xib */; };
 		8A05D5D82ACAA4CB004FE287 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A05D5D72ACAA4CB004FE287 /* Error.swift */; };
 		8A05D5DA2ACAAB50004FE287 /* ResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A05D5D92ACAAB50004FE287 /* ResponseSerializer.swift */; };
 		8A56A101295D3EA800F2287D /* ExampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A56A0FF295D3EA800F2287D /* ExampleCell.swift */; };
@@ -141,7 +140,6 @@
 		84E767FF2BC91391007D7C5A /* ValidationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationUtils.swift; sourceTree = "<group>"; };
 		84E768022BC913C2007D7C5A /* UIViewExtH.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtH.swift; sourceTree = "<group>"; };
 		84E768042BC913C8007D7C5A /* UIButonExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButonExt.swift; sourceTree = "<group>"; };
-		84E768082BCCBD42007D7C5A /* OnboardingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OnboardingViewController.xib; path = ../../../../../../../Documents/iOS/TemplateIOS/iOSTemplates/View/Controller/Authentication/OnboardingViewController/OnboardingViewController.xib; sourceTree = "<group>"; };
 		8A05D5D72ACAA4CB004FE287 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		8A05D5D92ACAAB50004FE287 /* ResponseSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseSerializer.swift; sourceTree = "<group>"; };
 		8A56A0FF295D3EA800F2287D /* ExampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCell.swift; sourceTree = "<group>"; };
@@ -290,7 +288,6 @@
 		84E767BF2BC9117A007D7C5A /* OnboardingViewController */ = {
 			isa = PBXGroup;
 			children = (
-				84E768082BCCBD42007D7C5A /* OnboardingViewController.xib */,
 				84E767C12BC9117A007D7C5A /* OnboardingViewController.swift */,
 			);
 			path = OnboardingViewController;
@@ -816,7 +813,6 @@
 				849FDDBF2BD21FC300E205ED /* PostImageCollectionViewCell.xib in Resources */,
 				84E767EA2BC9125D007D7C5A /* DatePickerViewController.xib in Resources */,
 				84E767EE2BC9125D007D7C5A /* MatchingView.xib in Resources */,
-				84E768092BCCBD42007D7C5A /* OnboardingViewController.xib in Resources */,
 				84E767EC2BC9125D007D7C5A /* MatchingViewController.xib in Resources */,
 				8A56A102295D3EA800F2287D /* ExampleCell.xib in Resources */,
 				84E767C62BC9117A007D7C5A /* RegisterViewController.xib in Resources */,

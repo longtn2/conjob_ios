@@ -28,7 +28,7 @@ final class RegisterViewModel: CommonLogic {
         APIAuth.userRegister(user: user) {  response in
             switch response {
             case .success(let user):
-                completion(.success(nil))
+                completion(.success(user))
             case .failure(let error):
                 completion(.failure(error))
             }

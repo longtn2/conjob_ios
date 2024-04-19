@@ -48,16 +48,17 @@ final class LoginViewController: ViewController {
     @IBAction private func continueButtonTouchUpInside(_ sender: UIButton) {
         LoadingUtils.shared().showLoadingView(isLoading: true)
         viewModel?.loginHandler(withEmail: emailTextField.text ?? "", pass: passwordTextField.text ?? "", completion: { [weak self] result in
-            LoadingUtils.shared().showLoadingView(isLoading: false)
-            guard let this = self else { return }
-            DispatchQueue.main.async {
-                switch result {
-                case .success:
-                    let homeVC = HomeController()
-                    this.navigationController?.isNavigationBarHidden = true
-                    this.navigationController?.pushViewController(homeVC, animated: true)
-                case .failure(let error):
-                    this.alert(error: error)
+            LoadingUtils.shared().showLoadingView(isLoading: false) {
+                guard let this = self else { return }
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success:
+                        let homeVC = HomeController()
+                        this.navigationController?.isNavigationBarHidden = true
+                        this.navigationController?.pushViewController(homeVC, animated: true)
+                    case .failure(let error):
+                        this.alert(error: error)
+                    }
                 }
             }
         })

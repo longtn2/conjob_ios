@@ -1,6 +1,10 @@
 import Foundation
 
-class UserRegister: Codable {
+class Error: Codable {
+    var message: String
+}
+
+class UserRegister: Error {
     var password, firstName, lastName, email: String?
     var phoneNumber, gender, dob, address: String?
     var avatar: String?

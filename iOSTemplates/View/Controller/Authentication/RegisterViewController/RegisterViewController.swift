@@ -22,7 +22,7 @@ final class RegisterViewController: ViewController {
     @IBOutlet private weak var genderButton: UIButton!
     @IBOutlet private weak var passwordView: UIView!
     @IBOutlet private weak var dayOfBirthView: UIView!
-    
+
     //MARK: Propeties
     var viewModel: RegisterViewModel?
     private enum Const {
@@ -113,7 +113,7 @@ final class RegisterViewController: ViewController {
     }
     @IBAction private func showOrHideButtonTouchUpInside(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-        let image = UIImage(named: sender.isSelected ? NameIcon.icon_show : NameIcon.icon_hide)
+        let image = UIImage(named: sender.isSelected ? NameIcon.icon_show: NameIcon.icon_hide)
         sender.setImage(image, for: .normal)
         passwordTextField.isSecureTextEntry = !sender.isSelected
     }
@@ -129,18 +129,19 @@ final class RegisterViewController: ViewController {
                                 address: addressTextField.text,
                                 avatar: "")
         viewModel?.registerHandler(with: user, completion: { [weak self] result in
-            LoadingUtils.shared().showLoadingView(isLoading: false)
+            LoadingUtils.shared().showLoadingView(isLoading: false) {
                 guard let this = self else { return }
                 DispatchQueue.main.async {
                     switch result {
                     case .success:
                         let loginVC = LoginViewController()
-                        this.navigationController?.isNavigationBarHidden = true
+                        loginVC.viewModel = LoginViewModel()
                         this.navigationController?.pushViewController(loginVC, animated: true)
                     case .failure(let error):
                         this.alert(error: error)
                     }
                 }
+            }
         })
     }
 

@@ -37,11 +37,11 @@ final class LoginViewController: ViewController {
         label.isHidden = check
         label.text = testErr
     }
-    
+
     //MARK: - IBActions
     @IBAction private func hidenButtonTouchUpInside(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-        let image = UIImage(named: sender.isSelected ? NameIcon.icon_show : NameIcon.icon_hide)
+        let image = UIImage(named: sender.isSelected ? NameIcon.icon_show: NameIcon.icon_hide)
         sender.setImage(image, for: .normal)
         passwordTextField.isSecureTextEntry = !sender.isSelected
     }
@@ -50,13 +50,15 @@ final class LoginViewController: ViewController {
         viewModel?.loginHandler(withEmail: emailTextField.text ?? "", pass: passwordTextField.text ?? "", completion: { [weak self] result in
             LoadingUtils.shared().showLoadingView(isLoading: false)
             guard let this = self else { return }
-            switch result {
-            case .success:
-                let homeVC = HomeController()
-                this.navigationController?.isNavigationBarHidden = true
-                this.navigationController?.pushViewController(homeVC, animated: true)
-            case .failure(let error):
-                this.alert(error: error)
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    let homeVC = HomeController()
+                    this.navigationController?.isNavigationBarHidden = true
+                    this.navigationController?.pushViewController(homeVC, animated: true)
+                case .failure(let error):
+                    this.alert(error: error)
+                }
             }
         })
     }

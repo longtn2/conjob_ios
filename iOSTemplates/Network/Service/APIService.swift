@@ -10,7 +10,7 @@ extension APIService: TargetType {
 
     var baseURL: String {
         guard let baseURLStr = AppConfiguration.infoForKey(.baseURL) else { fatalError("Missing baseURL") }
-        return baseURLStr / version
+        return baseURLStr /* / version */
     }
 
     var version: String {

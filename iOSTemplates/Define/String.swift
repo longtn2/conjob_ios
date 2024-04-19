@@ -35,4 +35,5 @@ extension App.String.APIError {
     static let noInternetConnection: String = "No Internet Connection"
     static let requestTimeout: String = "Request Timeout"
     static let forceUpdate: String = "Force Update"
+    static let badRequest: String = "Bad Request"
 }

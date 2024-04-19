@@ -13,6 +13,9 @@ struct ErrorRegister {
     static let validateEmailNull = "Please enter your email"
     static let validateEmail = "Your email is not correct!"
     
+    static let validateAddressNull = "Please enter your address"
+    static let validateAddress = "Your address is invalid"
+    
     static let validatePasswordNull = "Please enter your Password"
     static let validatePasswordRequire = "8 or more characters, contains uppercase letters, lowercase letters, numbers, and symbols"
 

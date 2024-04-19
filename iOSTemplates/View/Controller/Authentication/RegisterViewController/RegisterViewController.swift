@@ -5,17 +5,26 @@ final class RegisterViewController: ViewController {
     @IBOutlet private weak var firstNameTextField: UITextField!
     @IBOutlet private weak var lastNameTextField: UITextField!
     @IBOutlet private weak var phoneTextField: UITextField!
+    @IBOutlet private weak var addressTextField: UITextField!
     @IBOutlet private weak var dateOfBirthTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var continueButton: UIButton!
     @IBOutlet private weak var errorDateLabel: UILabel!
     @IBOutlet private weak var errorPhoneLabel: UILabel!
     @IBOutlet private weak var errorLastNameLabel: UILabel!
     @IBOutlet private weak var errorFirstNameLabel: UILabel!
-    @IBOutlet weak var dateOfBirthButton: UIButton!
+    @IBOutlet private weak var errorEmailLabel: UILabel!
+    @IBOutlet private weak var errorPasswordLabel: UILabel!
+    @IBOutlet private weak var errorAddressLabel: UILabel!
+    @IBOutlet private weak var dateOfBirthButton: UIButton!
     @IBOutlet private weak var roleButton: UIButton!
     @IBOutlet private weak var genderButton: UIButton!
-
+    @IBOutlet private weak var passwordView: UIView!
+    @IBOutlet private weak var dayOfBirthView: UIView!
+    
     //MARK: Propeties
+    var viewModel: RegisterViewModel?
     private enum Const {
         static let genders = ["Male", "Female", "Other"]
         static let roles = ["Candidate", "Recruiter"]
@@ -23,10 +32,6 @@ final class RegisterViewController: ViewController {
 
     private var menuGender: [UIMenuElement] = []
     private var menuRole: [UIMenuElement] = []
-    private var checkFirst: Bool = false
-    private var checkLast: Bool = false
-    private var checkPhone: Bool = false
-    private var checkDate: Bool = false
 
     //MARK: Functions
     override func setupData() {
@@ -36,6 +41,9 @@ final class RegisterViewController: ViewController {
         firstNameTextField.delegate = self
         lastNameTextField.delegate = self
         phoneTextField.delegate = self
+        addressTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
         dateOfBirthTextField.isEnabled = false
         continueButton.customRoundCorners(radius: 8)
         continueButton.isEnabled = false
@@ -43,6 +51,9 @@ final class RegisterViewController: ViewController {
         setupUINavigationBar(withtitle: "", left: image, right: UIImage())
         setupMenuChooseGender()
         setupMenuChooseRole()
+        let color = UIColor.hexStringToUIColor(hex: "#EBEBEB")
+        dayOfBirthView.customCorner(with: 1, radius: 5, color: color)
+        passwordView.customCorner(with: 1, radius: 5, color: color)
     }
 
     private func setupMenuChooseGender() {
@@ -100,51 +111,62 @@ final class RegisterViewController: ViewController {
         datePickerVC.delegate = self
         self.present(datePickerVC, animated: true)
     }
+    @IBAction private func showOrHideButtonTouchUpInside(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        let image = UIImage(named: sender.isSelected ? NameIcon.icon_show : NameIcon.icon_hide)
+        sender.setImage(image, for: .normal)
+        passwordTextField.isSecureTextEntry = !sender.isSelected
+    }
     @IBAction private func continueButtonTouchUpInside(_ sender: UIButton) {
-        let loginVC = LoginViewController()
-        let viewModel = LoginViewModel()
-        viewModel.isReister = true
-        loginVC.viewModel = viewModel
-        navigationController?.isNavigationBarHidden = false
-        navigationController?.pushViewController(loginVC, animated: true)
+        let homeVC = HomeController()
+        navigationController?.isNavigationBarHidden = true
+        navigationController?.pushViewController(homeVC, animated: true)
     }
 
     private func showError(_ label: UILabel, testErr: String, check: Bool = false) {
         label.isHidden = check
         label.text = testErr
     }
+
+
 }
 
 //MARK: DatePickerViewDelegate
 extension RegisterViewController: DatePickerViewDelegate {
     func viewController(_ view: DatePickerViewController, needPerfom date: String) {
-        checkDate = true
+        guard let viewModel = viewModel else { return }
+        viewModel.isDate = true
         dateOfBirthTextField.text = date
-        continueButton.isEnabled =  (checkFirst && checkLast && checkPhone && checkDate) ? true : false
+        continueButton.isEnabled = viewModel.enableButton()
     }
 }
 //MARK: UITextFieldDelegate
 extension RegisterViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let text = textField.text else { return }
+        guard let viewModel = viewModel else { return }
         let checkEmpty = text.isEmpty
         switch textField {
         case firstNameTextField:
-            let check = RegexManager.shared.isValidName(text)
-            checkFirst = check
-            showError(errorFirstNameLabel, testErr: checkEmpty ? ErrorRegister.validateFirstNameNull : ErrorRegister.validateFirstName, check: check)
+            viewModel.isFirst = RegexManager.shared.isValidName(text)
+            showError(errorFirstNameLabel, testErr: checkEmpty ? ErrorRegister.validateFirstNameNull : ErrorRegister.validateFirstName, check: viewModel.isFirst)
         case lastNameTextField:
-            let check = RegexManager.shared.isValidName(text)
-            checkLast = check
-            showError(errorLastNameLabel, testErr: checkEmpty ? ErrorRegister.validateLastNameNull : ErrorRegister.validateLastName, check: check)
+            viewModel.isLast = RegexManager.shared.isValidName(text)
+            showError(errorLastNameLabel, testErr: checkEmpty ? ErrorRegister.validateLastNameNull : ErrorRegister.validateLastName, check: viewModel.isLast)
         case phoneTextField:
-            let check = RegexManager.shared.isValidPhone(text)
-            checkPhone = check
-            showError(errorPhoneLabel, testErr: checkEmpty ? ErrorRegister.validatePhoneNull : ErrorRegister.validatePhone, check: check)
+            viewModel.isPhone = RegexManager.shared.isValidPhone(text)
+            showError(errorPhoneLabel, testErr: checkEmpty ? ErrorRegister.validatePhoneNull : ErrorRegister.validatePhone, check: viewModel.isPhone)
+        case addressTextField:
+            viewModel.isAddress = !checkEmpty
+            showError(errorAddressLabel, testErr: checkEmpty ? ErrorRegister.validateAddressNull : ErrorRegister.validateAddress, check: viewModel.isAddress)
+        case emailTextField:
+            viewModel.isEmail = RegexManager.shared.isValidEmail(text)
+            showError(errorEmailLabel, testErr: checkEmpty ? ErrorRegister.validateEmailNull : ErrorRegister.validateEmail, check: viewModel.isEmail)
         default:
-            return
+            viewModel.isPass = RegexManager.shared.isValidatePassword(text)
+            showError(errorPasswordLabel, testErr: checkEmpty ? ErrorRegister.validatePasswordNull : ErrorRegister.validatePasswordRequire, check: viewModel.isPass)
         }
-        continueButton.isEnabled = (checkFirst && checkLast && checkPhone && checkDate) ? true : false
+        continueButton.isEnabled = viewModel.enableButton()
     }
 }
 

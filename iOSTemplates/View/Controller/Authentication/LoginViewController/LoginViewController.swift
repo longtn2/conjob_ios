@@ -8,27 +8,25 @@ final class LoginViewController: ViewController {
     @IBOutlet private weak var errorPasswordLabel: UILabel!
     @IBOutlet private weak var continueButton: UIButton!
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet weak var passwordView: UIView!
     //MARK: Propeties
     var viewModel: LoginViewModel?
-    private var isShow: Bool = true
     private var checkMail: Bool = false
     private var checkPass: Bool = false
     private enum Const {
-        static let registerText: String = "Register"
         static let loginText: String = "Login"
-        
     }
     //MARK: Functions
     override func setupUI() {
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        let color = UIColor.hexStringToUIColor(hex: "#EBEBEB")
+        passwordView.customCorner(with: 1, radius: 5, color: color)
         continueButton.customRoundCorners(radius: 8)
         continueButton.isEnabled = false
         let image = UIImage(named: NameIcon.icon_back)
         setupUINavigationBar(withtitle: "", left: image, right: UIImage())
-        if let viewModel = viewModel {
-            titleLabel.text = viewModel.isReister ? Const.registerText : Const.loginText
-        }
+        titleLabel.text = Const.loginText
     }
 
     override func tapLeftBarButton() {
@@ -39,18 +37,30 @@ final class LoginViewController: ViewController {
         label.isHidden = check
         label.text = testErr
     }
+
     //MARK: - IBActions
     @IBAction private func hidenButtonTouchUpInside(_ sender: UIButton) {
-        let image = UIImage(named: isShow ? NameIcon.icon_show : NameIcon.icon_hide)
+        sender.isSelected = !sender.isSelected
+        let image = UIImage(named: sender.isSelected ? NameIcon.icon_show: NameIcon.icon_hide)
         sender.setImage(image, for: .normal)
-        passwordTextField.isSecureTextEntry = !isShow
-        isShow = !isShow
+        passwordTextField.isSecureTextEntry = !sender.isSelected
     }
     @IBAction private func continueButtonTouchUpInside(_ sender: UIButton) {
-        viewModel?.loginHandler(withEmail: emailTextField.text ?? "", pass: passwordTextField.text ?? "")
-        let homeVC = HomeController()
-        navigationController?.isNavigationBarHidden = true
-        navigationController?.pushViewController(homeVC, animated: true)
+        LoadingUtils.shared().showLoadingView(isLoading: true)
+        viewModel?.loginHandler(withEmail: emailTextField.text ?? "", pass: passwordTextField.text ?? "", completion: { [weak self] result in
+            LoadingUtils.shared().showLoadingView(isLoading: false)
+            guard let this = self else { return }
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    let homeVC = HomeController()
+                    this.navigationController?.isNavigationBarHidden = true
+                    this.navigationController?.pushViewController(homeVC, animated: true)
+                case .failure(let error):
+                    this.alert(error: error)
+                }
+            }
+        })
     }
 }
 //MARK: UITextFieldDelegate

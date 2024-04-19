@@ -31,7 +31,6 @@ final class OnboardingViewController: ViewController {
     @objc private func tapLoginView(_ sender: UITapGestureRecognizer) {
         let loginVC = LoginViewController()
         let viewModel = LoginViewModel()
-        viewModel.isReister = false
         loginVC.viewModel = viewModel
         navigationController?.isNavigationBarHidden = false
         navigationController?.pushViewController(loginVC, animated: true)
@@ -39,6 +38,7 @@ final class OnboardingViewController: ViewController {
 
     @objc private func tapRegisterView(_ sender: UITapGestureRecognizer) {
         let regisVC = RegisterViewController()
+        regisVC.viewModel = RegisterViewModel()
         navigationController?.isNavigationBarHidden = false
         navigationController?.pushViewController(regisVC, animated: true)
     }

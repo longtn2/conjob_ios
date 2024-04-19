@@ -222,7 +222,7 @@ extension UIView {
         layer.cornerRadius = radius
         clipsToBounds = true
     }
-    func customCorner(with width: CGFloat = 1, radius: CGFloat, color: UIColor = UIColor.white) {
+    func customCorner(withWidth width: CGFloat = 1, radius: CGFloat, color: UIColor = UIColor.white) {
         layer.cornerRadius = radius
         clipsToBounds = true
         layer.borderWidth = width

@@ -46,7 +46,9 @@ enum APIError: Error, Decodable {
             return App.String.APIError.requestTimeout
         case .forceUpdate:
             return App.String.APIError.forceUpdate
-        case .unknown, .emptyOrInvalidResponse, .cancelRequest, .badRequest:
+        case .badRequest:
+            return App.String.APIError.badRequest
+        case .unknown, .emptyOrInvalidResponse, .cancelRequest:
             return App.String.APIError.unknownError
         }
     }

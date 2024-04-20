@@ -18,6 +18,7 @@ class HomeController: UITabBarController {
     private func setupUI() {
         let matchVC = MatchingViewController()
         matchVC.viewModel = MatchingViewModel()
+        matchVC.delegate = self
         let matchNavi = UINavigationController(rootViewController: matchVC)
         matchNavi.isNavigationBarHidden = true
         
@@ -51,5 +52,16 @@ class HomeController: UITabBarController {
 extension HomeController: BottomTabBarViewDelegate {
     func cell(_ view: BottomTabBarView, needPerfom selectindex: Int) {
         selectedIndex = selectindex
+    }
+}
+
+extension HomeController: MatchingViewControllerDelegate {
+    func viewController(_ view: MatchingViewController, needPerfom action: MatchingViewController.TabBar) {
+        switch action {
+        case .isHide:
+            toggle(hide: true)
+        default:
+            toggle(hide: false)
+        }
     }
 }

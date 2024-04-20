@@ -8,10 +8,11 @@ protocol MatchingViewDelegate: AnyObject {
 final class MatchingView: OverlayView {
     //MARK: - Enum
     enum Action {
-        case Search
-        case Heart
-        case Message
-        case Share
+        case search
+        case heart
+        case message
+        case share
+        case seeMore
     }
     //MARK: - IBOutlets
     @IBOutlet private weak var matchingView: UIView!
@@ -53,6 +54,7 @@ final class MatchingView: OverlayView {
         matchingView.frame = self.bounds
         matchingView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         avatarImageView.customCorner(radius: avatarImageView.frame.height / 2)
+        tapSeeMore()
     }
 
     private func updateView() {
@@ -67,18 +69,28 @@ final class MatchingView: OverlayView {
         descriptionLabel.text = viewModel.description
     }
 
+    private func tapSeeMore() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.tapSeeMoreLabel))
+        seeMoreLabel.isUserInteractionEnabled = true
+        seeMoreLabel.addGestureRecognizer(gesture)
+    }
     //MARK: - IBAction
     @IBAction private func searchButtonTouchUpInside(_ sender: UIButton) {
-        delegate?.view(self, needPerfom: Action.Search)
+        delegate?.view(self, needPerfom: Action.search)
     }
     @IBAction private func heartButtonTouchUpInside(_ sender: UIButton) {
-        delegate?.view(self, needPerfom: Action.Heart)
+        delegate?.view(self, needPerfom: Action.heart)
     }
     @IBAction private func messageButtonTouchUpInside(_ sender: UIButton) {
-        delegate?.view(self, needPerfom: Action.Message)
+        delegate?.view(self, needPerfom: Action.message)
     }
     @IBAction private func shareButtonTouchUpInside(_ sender: UIButton) {
-        delegate?.view(self, needPerfom: Action.Share)
+        delegate?.view(self, needPerfom: Action.share)
+    }
+
+    //MARK: - Objc Funtions
+    @objc private func tapSeeMoreLabel() {
+        delegate?.view(self, needPerfom: Action.seeMore)
     }
 }
 

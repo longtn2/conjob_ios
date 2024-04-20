@@ -1,14 +1,21 @@
 import UIKit
 import Koloda
+protocol MatchingViewControllerDelegate: AnyObject {
+    func viewController(_ view: MatchingViewController, needPerfom action: MatchingViewController.TabBar)
+}
 
 final class MatchingViewController: ViewController {
-    
+    //MARK: - Enum
+    enum TabBar {
+        case isHide
+        case isShow
+    }
     //MARK: - IBOutlets
     @IBOutlet private weak var kolodaView: KolodaView!
     
     //MARK: - Propeties
     var viewModel: MatchingViewModel?
-    
+    weak var delegate: MatchingViewControllerDelegate?
     //MARK: - Functions
     override func setupUI() {
         super.setupUI()
@@ -51,18 +58,31 @@ extension MatchingViewController: KolodaViewDelegate, KolodaViewDataSource {
 extension MatchingViewController: MatchingViewDelegate {
     func view(_ view: MatchingView, needPerfom action: MatchingView.Action) {
         switch action {
-        case .Search:
+        case .seeMore:
+            let postDetail = PostDetailViewController()
+            let post = viewModel?.viewModelForMatching(at: kolodaView.currentCardIndex)
+            postDetail.viewModel = PostDetailViewModel(postModel: post)
+            postDetail.delegate = self
+            navigationController?.pushViewController(postDetail, animated: true)
+            delegate?.viewController(self, needPerfom: TabBar.isHide)
+        case .search:
             print("Search")
             //Show search VC
-        case .Heart:
+        case .heart:
             print("Heart")
             //Call api
-        case .Message:
+        case .message:
             print("Message")
             //Call api
         default:
             print("Share")
         }
+    }
+}
+
+extension MatchingViewController: PostDetailViewControllerDelegate {
+    func viewController(_ view: PostDetailViewController) {
+        delegate?.viewController(self, needPerfom: TabBar.isShow)
     }
 }
 

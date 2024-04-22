@@ -28,14 +28,27 @@ class ViewController: UIViewController {
         let leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 20))
         leftButton.setBackgroundImage(left, for: .normal)
         leftButton.addTarget(self, action: #selector(tapLeftBarButton), for: .touchUpInside)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
 
         let rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         rightButton.setBackgroundImage(right, for: .normal)
         rightButton.addTarget(self, action: #selector(tapRightBarButton), for: .touchUpInside)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
 
     }
+    func setupUINavigationBar(withTitleView view: UIView, left: UIImage?, right: UIImage?) {
+        navigationItem.titleView = view
+        let leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 20))
+        leftButton.setBackgroundImage(left, for: .normal)
+        leftButton.addTarget(self, action: #selector(tapLeftBarButton), for: .touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
+
+        let rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        rightButton.setBackgroundImage(right, for: .normal)
+        rightButton.addTarget(self, action: #selector(tapRightBarButton), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
+    }
+    
     internal func setupUI() {
         view.removeMultiTouch()
     }

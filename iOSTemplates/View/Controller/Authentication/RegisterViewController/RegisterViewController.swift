@@ -52,8 +52,8 @@ final class RegisterViewController: ViewController {
         setupMenuChooseGender()
         setupMenuChooseRole()
         let color = UIColor.hexStringToUIColor(hex: "#EBEBEB")
-        dayOfBirthView.customCorner(with: 1, radius: 5, color: color)
-        passwordView.customCorner(with: 1, radius: 5, color: color)
+        dayOfBirthView.customCorner(withWidth: 1, radius: 5, color: color)
+        passwordView.customCorner(withWidth: 1, radius: 5, color: color)
     }
 
     private func setupMenuChooseGender() {

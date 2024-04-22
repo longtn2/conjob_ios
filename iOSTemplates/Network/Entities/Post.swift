@@ -9,7 +9,8 @@
 import Foundation
 class Post: Decodable {
     var id: String
-    var image: String
+    var type: String
+    var url: String
     var name: String
     var description: String
     var avartar: String
@@ -17,9 +18,10 @@ class Post: Decodable {
     var numberMessage: Int
     var numberShare: Int
     
-    init(id: String, image: String, name: String, description: String, avartar: String, numberHeart: Int, numberMessage: Int, numberShare: Int) {
+    init(id: String, type: String, url: String, name: String, description: String, avartar: String, numberHeart: Int, numberMessage: Int, numberShare: Int) {
         self.id = id
-        self.image = image
+        self.type = type
+        self.url = url
         self.name = name
         self.description = description
         self.avartar = avartar

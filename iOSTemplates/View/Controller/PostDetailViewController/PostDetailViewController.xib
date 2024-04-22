@@ -39,7 +39,7 @@
                     <rect key="frame" x="0.0" y="59" width="393" height="679"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xU5-vr-3ID">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="580.33333333333337"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="596.33333333333337"/>
                             <subviews>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="mjR-Je-S6t">
                                     <rect key="frame" x="16" y="16" width="361" height="358"/>
@@ -56,7 +56,7 @@
                                     </collectionViewFlowLayout>
                                 </collectionView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nXD-vh-zId">
-                                    <rect key="frame" x="0.0" y="390" width="393" height="190.33333333333337"/>
+                                    <rect key="frame" x="0.0" y="390" width="393" height="206.33333333333337"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Q6q-bo-Q6q">
                                             <rect key="frame" x="16" y="16" width="361" height="174.33333333333334"/>
@@ -203,7 +203,7 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="Q6q-bo-Q6q" secondAttribute="trailing" constant="16" id="GZW-NH-RO9"/>
-                                        <constraint firstAttribute="bottom" secondItem="Q6q-bo-Q6q" secondAttribute="bottom" id="cFm-1Q-q5h"/>
+                                        <constraint firstAttribute="bottom" secondItem="Q6q-bo-Q6q" secondAttribute="bottom" constant="16" id="cFm-1Q-q5h"/>
                                         <constraint firstItem="Q6q-bo-Q6q" firstAttribute="top" secondItem="nXD-vh-zId" secondAttribute="top" constant="16" id="psb-hp-dAr"/>
                                         <constraint firstItem="Q6q-bo-Q6q" firstAttribute="leading" secondItem="nXD-vh-zId" secondAttribute="leading" constant="16" id="z1m-iA-BDe"/>
                                     </constraints>

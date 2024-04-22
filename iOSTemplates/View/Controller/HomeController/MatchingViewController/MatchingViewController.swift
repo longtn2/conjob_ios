@@ -12,9 +12,11 @@ final class MatchingViewController: ViewController {
     }
     //MARK: - IBOutlets
     @IBOutlet private weak var kolodaView: KolodaView!
-    
+
     //MARK: - Propeties
     var viewModel: MatchingViewModel?
+    private var blurredEffectView = UIVisualEffectView(effect: .none)
+    var userSwiped = false
     weak var delegate: MatchingViewControllerDelegate?
     //MARK: - Functions
     override func setupUI() {
@@ -86,4 +88,14 @@ extension MatchingViewController: PostDetailViewControllerDelegate {
     }
 }
 
+extension KolodaView {
+    func addUIEffect(withColor color: UIColor,blurredEffectView: UIVisualEffectView) {
+        blurredEffectView.backgroundColor = color.withAlphaComponent(0.16)
+        blurredEffectView.frame = self.bounds
+        self.addSubview(blurredEffectView)
+    }
 
+    func removeUIBlurEffect(blurredEffectView: UIVisualEffectView) {
+        blurredEffectView.removeFromSuperview()
+    }
+}

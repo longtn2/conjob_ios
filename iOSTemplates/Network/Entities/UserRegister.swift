@@ -1,14 +1,27 @@
 import Foundation
 
-class Error: Codable {
-    var message: String
+class ErrorRegis: Codable {
+    var message: String?
+
+    enum CodingKeys: String, CodingKey {
+        case message
+    }
+
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        message = try container.decodeIfPresent(String.self, forKey: .message).unwrapped(or: "")
+    }
+    init(message: String?) {
+        self.message = message
+    }
 }
 
-class UserRegister: Error {
+class UserRegister: ErrorRegis {
     var password, firstName, lastName, email: String?
     var phoneNumber, gender, dob, address: String?
     var avatar: String?
-    
+    //var message: String?
+
     enum CodingKeys: String, CodingKey {
         case password
         case firstName = "first_name"
@@ -16,8 +29,10 @@ class UserRegister: Error {
         case email
         case phoneNumber = "phone_number"
         case gender, dob, address, avatar
+        case message
     }
     required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
         let container = try decoder.container(keyedBy: CodingKeys.self)
         email = try container.decodeIfPresent(String.self, forKey: .email).unwrapped(or: "")
         password = try container.decodeIfPresent(String.self, forKey: .password).unwrapped(or: "")
@@ -28,16 +43,19 @@ class UserRegister: Error {
         avatar = try container.decodeIfPresent(String.self, forKey: .avatar).unwrapped(or: "")
         address = try container.decodeIfPresent(String.self, forKey: .address).unwrapped(or: "")
         gender = try container.decodeIfPresent(String.self, forKey: .gender).unwrapped(or: "")
+        message = try container.decodeIfPresent(String.self, forKey: .message).unwrapped(or: "")
     }
+    
     init(password: String?, firstName: String?, lastName: String?, email: String?, phoneNumber: String?, gender: String?, dob: String?, address: String?, avatar: String?) {
-            self.password = password
-            self.firstName = firstName
-            self.lastName = lastName
-            self.email = email
-            self.phoneNumber = phoneNumber
-            self.gender = gender
-            self.dob = dob
-            self.address = address
-            self.avatar = avatar
-        }
+        super.init(message: "")
+        self.password = password
+        self.firstName = firstName
+        self.lastName = lastName
+        self.email = email
+        self.phoneNumber = phoneNumber
+        self.gender = gender
+        self.dob = dob
+        self.address = address
+        self.avatar = avatar
+    }
 }

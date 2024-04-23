@@ -46,9 +46,13 @@ class ViewController: UIViewController {
         let rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         rightButton.setBackgroundImage(right, for: .normal)
         rightButton.addTarget(self, action: #selector(tapRightBarButton), for: .touchUpInside)
+
+        let separatorView = UIView(frame: CGRect(x: 0, y: 43.5, width: UIScreen.main.bounds.width, height: 1))
+        separatorView.backgroundColor = UIColor.hexStringToUIColor(hex: "#D9D9D9")
+        navigationController?.navigationBar.addSubview(separatorView)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
     }
-    
+
     internal func setupUI() {
         view.removeMultiTouch()
     }

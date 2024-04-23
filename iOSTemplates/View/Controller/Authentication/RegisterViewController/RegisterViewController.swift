@@ -22,7 +22,7 @@ final class RegisterViewController: ViewController {
     @IBOutlet private weak var genderButton: UIButton!
     @IBOutlet private weak var passwordView: UIView!
     @IBOutlet private weak var dayOfBirthView: UIView!
-    
+
     //MARK: Propeties
     var viewModel: RegisterViewModel?
     private enum Const {
@@ -52,8 +52,8 @@ final class RegisterViewController: ViewController {
         setupMenuChooseGender()
         setupMenuChooseRole()
         let color = UIColor.hexStringToUIColor(hex: "#EBEBEB")
-        dayOfBirthView.customCorner(with: 1, radius: 5, color: color)
-        passwordView.customCorner(with: 1, radius: 5, color: color)
+        dayOfBirthView.customCorner(withWidth: 1, radius: 5, color: color)
+        passwordView.customCorner(withWidth: 1, radius: 5, color: color)
     }
 
     private func setupMenuChooseGender() {
@@ -113,14 +113,36 @@ final class RegisterViewController: ViewController {
     }
     @IBAction private func showOrHideButtonTouchUpInside(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-        let image = UIImage(named: sender.isSelected ? NameIcon.icon_show : NameIcon.icon_hide)
+        let image = UIImage(named: sender.isSelected ? NameIcon.icon_show: NameIcon.icon_hide)
         sender.setImage(image, for: .normal)
         passwordTextField.isSecureTextEntry = !sender.isSelected
     }
     @IBAction private func continueButtonTouchUpInside(_ sender: UIButton) {
-        let homeVC = HomeController()
-        navigationController?.isNavigationBarHidden = true
-        navigationController?.pushViewController(homeVC, animated: true)
+        LoadingUtils.shared().showLoadingView(isLoading: true)
+        let user = UserRegister(password: passwordTextField.text,
+                                firstName: firstNameTextField.text,
+                                lastName: lastNameTextField.text,
+                                email: emailTextField.text,
+                                phoneNumber: phoneTextField.text,
+                                gender: "male",
+                                dob: dateOfBirthTextField.text,
+                                address: addressTextField.text,
+                                avatar: "")
+        viewModel?.registerHandler(with: user, completion: { [weak self] result in
+            LoadingUtils.shared().showLoadingView(isLoading: false) {
+                guard let this = self else { return }
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success:
+                        let loginVC = LoginViewController()
+                        loginVC.viewModel = LoginViewModel()
+                        this.navigationController?.pushViewController(loginVC, animated: true)
+                    case .failure(let error):
+                        this.alert(error: error)
+                    }
+                }
+            }
+        })
     }
 
     private func showError(_ label: UILabel, testErr: String, check: Bool = false) {

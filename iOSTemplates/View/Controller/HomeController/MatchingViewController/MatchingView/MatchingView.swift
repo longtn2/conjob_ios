@@ -1,6 +1,8 @@
 import Foundation
 import UIKit
 import Koloda
+import AVKit
+import AVFoundation
 
 protocol MatchingViewDelegate: AnyObject {
     func view(_ view: MatchingView, needPerfom action: MatchingView.Action)
@@ -26,7 +28,6 @@ final class MatchingView: OverlayView {
     @IBOutlet private weak var numberHeartLabel: UILabel!
     @IBOutlet private weak var numberMessageLabel: UILabel!
     @IBOutlet private weak var numberShareLabel: UILabel!
-    @IBOutlet private weak var seeMoreLabel: UILabel!
     @IBOutlet private weak var avatarImageView: UIImageView!
     //MARK: - Propeties
     weak var delegate: MatchingViewDelegate?
@@ -54,25 +55,32 @@ final class MatchingView: OverlayView {
         matchingView.frame = self.bounds
         matchingView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         avatarImageView.customCorner(radius: avatarImageView.frame.height / 2)
-        tapSeeMore()
     }
 
     private func updateView() {
         guard let viewModel = viewModel else { return }
-        postImageView.image = UIImage(named: viewModel.image)
+        let color = UIColor.black
+        postImageView.backgroundColor = color
+        postImageView.image = UIImage(named: viewModel.url)
+        switch viewModel.type {
+        case "image":
+            postImageView.image = UIImage(named: viewModel.url)
+        default:
+            let videoURL = URL(string: viewModel.url)
+            let player = AVPlayer(url: videoURL!)
+            let playerLayer = AVPlayerLayer(player: player)
+            playerLayer.frame = postImageView.bounds
+            postImageView.layer.addSublayer(playerLayer)
+            player.play()
+        }
         nameLabel.text = viewModel.name
-        descriptionLabel.text = viewModel.description
+        //descriptionLabel.text = viewModel.description
         numberHeartLabel.text = String(viewModel.numberHeart)
         numberShareLabel.text = String(viewModel.numberShare)
         numberMessageLabel.text = String(viewModel.numberMessage)
         avatarImageView.image = UIImage(named: viewModel.avartar)
-        descriptionLabel.text = viewModel.description
-    }
-
-    private func tapSeeMore() {
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.tapSeeMoreLabel))
-        seeMoreLabel.isUserInteractionEnabled = true
-        seeMoreLabel.addGestureRecognizer(gesture)
+        let text = viewModel.description
+        addSeeMoreInLabel(text: text)
     }
     //MARK: - IBAction
     @IBAction private func searchButtonTouchUpInside(_ sender: UIButton) {
@@ -89,8 +97,21 @@ final class MatchingView: OverlayView {
     }
 
     //MARK: - Objc Funtions
-    @objc private func tapSeeMoreLabel() {
+    @objc private func tapperSeeMoreLabel() {
         delegate?.view(self, needPerfom: Action.seeMore)
+    }
+
+    func addSeeMoreInLabel(text: String) {
+        let fullText = text + "...See More"
+        descriptionLabel.text = fullText
+        let attributedString = NSMutableAttributedString(string: fullText)
+        let range = (fullText as NSString).range(of: "See More")
+        attributedString.addAttribute(.foregroundColor, value: UIColor.white, range: range)
+        attributedString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 14), range: range)
+        descriptionLabel.attributedText = attributedString
+        descriptionLabel.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapperSeeMoreLabel))
+        descriptionLabel.addGestureRecognizer(tapGesture)
     }
 }
 

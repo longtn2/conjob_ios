@@ -22,7 +22,6 @@ final class LoginViewController: ViewController {
         passwordTextField.delegate = self
         let color = UIColor.hexStringToUIColor(hex: "#EBEBEB")
         passwordView.customCorner(withWidth: 1, radius: 5, color: color)
-        //passwordView.customCorner(with: 1, radius: 5, color: color)
         continueButton.customRoundCorners(radius: 8)
         continueButton.isEnabled = false
         let image = UIImage(named: NameIcon.icon_back)

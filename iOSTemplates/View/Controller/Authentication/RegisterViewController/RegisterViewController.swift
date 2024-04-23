@@ -19,14 +19,14 @@ final class RegisterViewController: ViewController {
     @IBOutlet private weak var errorAddressLabel: UILabel!
     @IBOutlet private weak var dateOfBirthButton: UIButton!
     @IBOutlet private weak var roleButton: UIButton!
-    @IBOutlet private weak var genderButton: UIButton!
     @IBOutlet private weak var passwordView: UIView!
     @IBOutlet private weak var dayOfBirthView: UIView!
+    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet var genderButton: [UIButton]!
 
     //MARK: Propeties
     var viewModel: RegisterViewModel?
     private enum Const {
-        static let genders = ["Male", "Female", "Other"]
         static let roles = ["Candidate", "Recruiter"]
     }
 
@@ -38,46 +38,32 @@ final class RegisterViewController: ViewController {
 
     }
     override func setupUI() {
+        scrollView.delegate = self
         firstNameTextField.delegate = self
         lastNameTextField.delegate = self
         phoneTextField.delegate = self
         addressTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        passwordTextField.isSecureTextEntry = true
         dateOfBirthTextField.isEnabled = false
         continueButton.customRoundCorners(radius: 8)
         continueButton.isEnabled = false
         let image = UIImage(named: NameIcon.icon_back)
-        setupUINavigationBar(withtitle: "", left: image, right: UIImage())
-        setupMenuChooseGender()
+        let titleLabel = UILabel()
+        titleLabel.text = "Register"
+        titleLabel.textColor = UIColor(named: "App Main Color 1")
+        titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        titleLabel.sizeToFit()
+        setupUINavigationBar(withTitleView: titleLabel, left: image, right: UIImage())
+
         setupMenuChooseRole()
         let color = UIColor.hexStringToUIColor(hex: "#EBEBEB")
         dayOfBirthView.customCorner(withWidth: 1, radius: 5, color: color)
         passwordView.customCorner(withWidth: 1, radius: 5, color: color)
     }
 
-    private func setupMenuChooseGender() {
-        self.genderButton.customRoundCorners(radius: 7)
-        let actionClosure = { (action: UIAction) in
 
-        }
-
-        for gen in Const.genders {
-            menuGender.append(UIAction(title: gen, handler: actionClosure))
-        }
-
-        if #available(iOS 14.0, *) {
-            genderButton.menu = UIMenu(options: .displayInline, children: menuGender)
-            genderButton.showsMenuAsPrimaryAction = true
-            if #available(iOS 15.0, *) {
-                genderButton.changesSelectionAsPrimaryAction = true
-            } else {
-                return
-            }
-        } else {
-            return
-        }
-    }
     private func setupMenuChooseRole() {
         roleButton.customRoundCorners(radius: 7)
         let actionClosure = { (action: UIAction) in
@@ -105,6 +91,15 @@ final class RegisterViewController: ViewController {
         navigationController?.popViewController(animated: true)
     }
     //MARK: IBActions
+    @IBAction func genderTouchUpInside(_ sender: UIButton) {
+        for (index, button) in genderButton.enumerated() {
+            if sender == button {
+                genderButton[index].isSelected = true
+            } else {
+                genderButton[index].isSelected = false
+            }
+        }
+    }
     @IBAction private func chooseDateButtonTouchUpInside(_ sender: UIButton) {
         let datePickerVC = DatePickerViewController()
         datePickerVC.modalPresentationStyle = .overCurrentContext
@@ -118,13 +113,20 @@ final class RegisterViewController: ViewController {
         passwordTextField.isSecureTextEntry = !sender.isSelected
     }
     @IBAction private func continueButtonTouchUpInside(_ sender: UIButton) {
+        var gender: String = ""
+        for (index, _) in genderButton.enumerated() {
+            if genderButton[index].isSelected == true {
+                gender = genderButton[index].titleLabel?.text ?? ""
+            }
+        }
+
         LoadingUtils.shared().showLoadingView(isLoading: true)
         let user = UserRegister(password: passwordTextField.text,
                                 firstName: firstNameTextField.text,
                                 lastName: lastNameTextField.text,
                                 email: emailTextField.text,
                                 phoneNumber: phoneTextField.text,
-                                gender: "male",
+                                gender: gender,
                                 dob: dateOfBirthTextField.text,
                                 address: addressTextField.text,
                                 avatar: "")
@@ -149,8 +151,6 @@ final class RegisterViewController: ViewController {
         label.isHidden = check
         label.text = testErr
     }
-
-
 }
 
 //MARK: DatePickerViewDelegate
@@ -190,5 +190,9 @@ extension RegisterViewController: UITextFieldDelegate {
         }
         continueButton.isEnabled = viewModel.enableButton()
     }
+}
+
+extension RegisterViewController: UIScrollViewDelegate {
+
 }
 

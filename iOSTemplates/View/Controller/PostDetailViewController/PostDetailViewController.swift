@@ -36,7 +36,7 @@ class PostDetailViewController: ViewController {
         shadowView.addShadow(ofColor: UIColor.hexStringToUIColor(hex: "#B8B8BF"), opacity: 0.2)
 
         let number = 5
-        let width = 6*8 + 6*4
+        let width = 5*8 + 6*4
         pageControl = CustomPageControl(numberOfPages: number)
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(pageControl)

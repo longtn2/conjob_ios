@@ -29,13 +29,6 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBo-Pd-ygb">
-                    <rect key="frame" x="0.0" y="60" width="393" height="1"/>
-                    <color key="backgroundColor" red="0.72156862745098038" green="0.72156862745098038" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="1" id="T23-Rm-fRe"/>
-                    </constraints>
-                </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sA-hy-xFy">
                     <rect key="frame" x="0.0" y="59" width="393" height="679"/>
                     <subviews>
@@ -228,6 +221,7 @@
                                 <constraint firstAttribute="trailing" secondItem="nXD-vh-zId" secondAttribute="trailing" id="MBE-00-WsA"/>
                                 <constraint firstAttribute="trailing" secondItem="kM4-wS-O2m" secondAttribute="trailing" constant="16" id="O3S-54-2Nt"/>
                                 <constraint firstItem="nXD-vh-zId" firstAttribute="leading" secondItem="xU5-vr-3ID" secondAttribute="leading" id="Z4j-EE-pgC"/>
+                                <constraint firstItem="nXD-vh-zId" firstAttribute="top" secondItem="kM4-wS-O2m" secondAttribute="bottom" constant="16" id="stI-GC-PYd"/>
                                 <constraint firstAttribute="bottom" secondItem="nXD-vh-zId" secondAttribute="bottom" id="tXz-oU-5To"/>
                                 <constraint firstItem="kM4-wS-O2m" firstAttribute="leading" secondItem="xU5-vr-3ID" secondAttribute="leading" constant="16" id="zaN-da-Vk7"/>
                             </constraints>
@@ -269,14 +263,11 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="rBo-Pd-ygb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="1" id="2Ad-o2-mzt"/>
                 <constraint firstItem="8uf-yG-4VC" firstAttribute="leading" secondItem="ofG-qi-tvT" secondAttribute="trailing" constant="16" id="74h-dH-Pqi"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8uf-yG-4VC" secondAttribute="trailing" constant="16" id="BrX-Ni-5AG"/>
                 <constraint firstItem="ofG-qi-tvT" firstAttribute="width" secondItem="8uf-yG-4VC" secondAttribute="width" id="HmZ-tB-vfx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="8uf-yG-4VC" secondAttribute="bottom" constant="16" id="JJw-XH-4ej"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ofG-qi-tvT" secondAttribute="bottom" constant="16" id="dEX-T8-NJf"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rBo-Pd-ygb" secondAttribute="trailing" id="fpu-sl-cm9"/>
-                <constraint firstItem="rBo-Pd-ygb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jeC-Tw-Q15"/>
                 <constraint firstItem="ofG-qi-tvT" firstAttribute="top" secondItem="3sA-hy-xFy" secondAttribute="bottom" constant="16" id="kRf-cw-xJg"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3sA-hy-xFy" secondAttribute="trailing" id="lNh-Vy-bRE"/>
                 <constraint firstItem="ofG-qi-tvT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="np1-8C-4vh"/>

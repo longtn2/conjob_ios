@@ -9,13 +9,13 @@ final class LoginViewModel: CommonLogic {
                     self.user = user
                     UserManager.shared.saveUserToUserDefaults(user: user)
                 }
-                completion(.success(nil))
+                completion(.success(user))
             case .failure(let error):
                 completion(.failure(error))
             }
         }
     }
-    func registerHandler() {
-
+    
+    func registerHandler(with user: UserRegister, completion: @escaping APICompletion<UserRegister>) {
     }
 }

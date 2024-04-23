@@ -28,17 +28,8 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4w-0w-ryu">
-                            <rect key="frame" x="16" y="729" width="275" height="17"/>
+                            <rect key="frame" x="16" y="729" width="361" height="17"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See More" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aB-81-Ice">
-                            <rect key="frame" x="307" y="729" width="70" height="17"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="70" id="Dhd-lw-Gyc"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -179,8 +170,7 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="1aB-81-Ice" firstAttribute="leading" secondItem="T4w-0w-ryu" secondAttribute="trailing" constant="16" id="68p-ZJ-Tse"/>
-                        <constraint firstAttribute="trailing" secondItem="1aB-81-Ice" secondAttribute="trailing" constant="16" id="6jv-Be-TD4"/>
+                        <constraint firstItem="T4w-0w-ryu" firstAttribute="trailing" secondItem="RqP-af-UT4" secondAttribute="trailing" id="1Yn-3W-ZWa"/>
                         <constraint firstAttribute="bottom" secondItem="xt7-0q-yji" secondAttribute="bottom" constant="198" id="8OP-mi-mD7"/>
                         <constraint firstItem="F0Q-Aa-gHh" firstAttribute="top" secondItem="jXm-EN-Tuw" secondAttribute="top" id="C0L-mJ-hwD"/>
                         <constraint firstItem="2wd-hP-gEr" firstAttribute="top" secondItem="jXm-EN-Tuw" secondAttribute="top" constant="54" id="CyR-gn-9In"/>
@@ -189,7 +179,6 @@
                         <constraint firstAttribute="trailing" secondItem="IcT-9Y-UCv" secondAttribute="trailing" constant="24" id="G6w-Qi-FD0"/>
                         <constraint firstItem="2wd-hP-gEr" firstAttribute="leading" secondItem="jXm-EN-Tuw" secondAttribute="leading" constant="24" id="Hfx-yI-Idr"/>
                         <constraint firstAttribute="trailing" secondItem="F0Q-Aa-gHh" secondAttribute="trailing" id="VSj-xr-p2b"/>
-                        <constraint firstItem="1aB-81-Ice" firstAttribute="bottom" secondItem="T4w-0w-ryu" secondAttribute="bottom" id="Wpe-Qf-Jbv"/>
                         <constraint firstItem="RqP-af-UT4" firstAttribute="leading" secondItem="jXm-EN-Tuw" secondAttribute="leading" constant="16" id="Xf4-t2-TsO"/>
                         <constraint firstAttribute="bottom" secondItem="F0Q-Aa-gHh" secondAttribute="bottom" id="Ye1-Q7-VNs"/>
                         <constraint firstItem="IcT-9Y-UCv" firstAttribute="top" secondItem="2wd-hP-gEr" secondAttribute="top" id="emQ-qt-zEq"/>
@@ -223,7 +212,6 @@
                 <outlet property="numberShareLabel" destination="iR5-l5-dSj" id="mD0-Ew-tOh"/>
                 <outlet property="postImageView" destination="F0Q-Aa-gHh" id="2f0-kz-7hW"/>
                 <outlet property="searchButton" destination="IcT-9Y-UCv" id="bWa-JJ-rdn"/>
-                <outlet property="seeMoreLabel" destination="1aB-81-Ice" id="tvo-Dl-pYg"/>
                 <outlet property="shareButton" destination="XlN-70-9UD" id="aNf-xq-7yC"/>
             </connections>
             <point key="canvasLocation" x="67.938931297709928" y="19.718309859154932"/>

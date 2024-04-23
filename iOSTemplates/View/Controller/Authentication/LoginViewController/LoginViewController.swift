@@ -21,7 +21,8 @@ final class LoginViewController: ViewController {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         let color = UIColor.hexStringToUIColor(hex: "#EBEBEB")
-        passwordView.customCorner(with: 1, radius: 5, color: color)
+        passwordView.customCorner(withWidth: 1, radius: 5, color: color)
+        //passwordView.customCorner(with: 1, radius: 5, color: color)
         continueButton.customRoundCorners(radius: 8)
         continueButton.isEnabled = false
         let image = UIImage(named: NameIcon.icon_back)
@@ -48,16 +49,17 @@ final class LoginViewController: ViewController {
     @IBAction private func continueButtonTouchUpInside(_ sender: UIButton) {
         LoadingUtils.shared().showLoadingView(isLoading: true)
         viewModel?.loginHandler(withEmail: emailTextField.text ?? "", pass: passwordTextField.text ?? "", completion: { [weak self] result in
-            LoadingUtils.shared().showLoadingView(isLoading: false)
-            guard let this = self else { return }
-            DispatchQueue.main.async {
-                switch result {
-                case .success:
-                    let homeVC = HomeController()
-                    this.navigationController?.isNavigationBarHidden = true
-                    this.navigationController?.pushViewController(homeVC, animated: true)
-                case .failure(let error):
-                    this.alert(error: error)
+            LoadingUtils.shared().showLoadingView(isLoading: false) {
+                guard let this = self else { return }
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success:
+                        let homeVC = HomeController()
+                        this.navigationController?.isNavigationBarHidden = true
+                        this.navigationController?.pushViewController(homeVC, animated: true)
+                    case .failure(let error):
+                        this.alert(error: error)
+                    }
                 }
             }
         })

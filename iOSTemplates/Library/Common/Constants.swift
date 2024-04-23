@@ -49,6 +49,8 @@ struct NameIcon {
     static let icon_heartRed = "icon_heartRed"
     static let icon_shareGray = "icon_shareGray"
     static let icon_more = "icon_more"
+    static let icon_acceptGreen = "icon_acceptGreen"
+    static let icon_closeRed = "icon_closeRed"
 }
 
 struct CellIdentifer {

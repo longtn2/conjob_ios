@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		84205EB32BD240910033EA5C /* UserRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84205EB22BD240910033EA5C /* UserRegister.swift */; };
 		84205EB12BD234660033EA5C /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84205EB02BD234660033EA5C /* OnboardingViewController.xib */; };
+		84205EB32BD240910033EA5C /* UserRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84205EB22BD240910033EA5C /* UserRegister.swift */; };
+		845C8A4A2BD8EDF300019310 /* JobModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845C8A492BD8EDF300019310 /* JobModel.swift */; };
+		845C8A4C2BD8EFD600019310 /* JobService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845C8A4B2BD8EFD600019310 /* JobService.swift */; };
+		845C8A4E2BD8F10000019310 /* APIJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845C8A4D2BD8F10000019310 /* APIJob.swift */; };
+		845C8A512BD9125D00019310 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845C8A502BD9125D00019310 /* Job.swift */; };
+		845C8A532BD9127D00019310 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845C8A522BD9127D00019310 /* PostModel.swift */; };
 		849FDDBE2BD21FC300E205ED /* PostImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FDDBC2BD21FC300E205ED /* PostImageCollectionViewCell.swift */; };
 		849FDDBF2BD21FC300E205ED /* PostImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849FDDBD2BD21FC300E205ED /* PostImageCollectionViewCell.xib */; };
 		84A216532BCD130800CB8691 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A216512BCD130800CB8691 /* PostDetailViewController.swift */; };
@@ -117,8 +122,13 @@
 		70CD2FC8403890DA7E5606E9 /* Pods-iOSTemplates-iOSTemplatesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSTemplates-iOSTemplatesUITests.debug.xcconfig"; path = "Target Support Files/Pods-iOSTemplates-iOSTemplatesUITests/Pods-iOSTemplates-iOSTemplatesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7936695A4008933DB12AF0FD /* Pods-iOSTemplates-iOSTemplatesUITests.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSTemplates-iOSTemplatesUITests.dev.xcconfig"; path = "Target Support Files/Pods-iOSTemplates-iOSTemplatesUITests/Pods-iOSTemplates-iOSTemplatesUITests.dev.xcconfig"; sourceTree = "<group>"; };
 		7EB0286623D74BD5DABEF9E6 /* Pods-iOSTemplates-iOSTemplatesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSTemplates-iOSTemplatesUITests.release.xcconfig"; path = "Target Support Files/Pods-iOSTemplates-iOSTemplatesUITests/Pods-iOSTemplates-iOSTemplatesUITests.release.xcconfig"; sourceTree = "<group>"; };
-		84205EB22BD240910033EA5C /* UserRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegister.swift; sourceTree = "<group>"; };
 		84205EB02BD234660033EA5C /* OnboardingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
+		84205EB22BD240910033EA5C /* UserRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegister.swift; sourceTree = "<group>"; };
+		845C8A492BD8EDF300019310 /* JobModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobModel.swift; sourceTree = "<group>"; };
+		845C8A4B2BD8EFD600019310 /* JobService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobService.swift; sourceTree = "<group>"; };
+		845C8A4D2BD8F10000019310 /* APIJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIJob.swift; sourceTree = "<group>"; };
+		845C8A502BD9125D00019310 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		845C8A522BD9127D00019310 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		849FDDBC2BD21FC300E205ED /* PostImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		849FDDBD2BD21FC300E205ED /* PostImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		84A216512BCD130800CB8691 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
@@ -265,6 +275,16 @@
 				A7CDE1403F5D9D19670DB2C5 /* Pods-iOSTemplatesTests.production.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		845C8A4F2BD9124F00019310 /* JobModel */ = {
+			isa = PBXGroup;
+			children = (
+				845C8A492BD8EDF300019310 /* JobModel.swift */,
+				845C8A502BD9125D00019310 /* Job.swift */,
+				845C8A522BD9127D00019310 /* PostModel.swift */,
+			);
+			path = JobModel;
 			sourceTree = "<group>";
 		};
 		849FDDBB2BD21F9100E205ED /* PostImageCollectionViewCell */ = {
@@ -497,6 +517,7 @@
 			children = (
 				8A5CC42E2ACD52E4007A555E /* APIPokemon.swift */,
 				84A2165F2BCE263F00CB8691 /* APIAuth.swift */,
+				845C8A4D2BD8F10000019310 /* APIJob.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -683,6 +704,7 @@
 		8A625D4A29597DDE007F1E99 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				845C8A4F2BD9124F00019310 /* JobModel */,
 				84E767FB2BC91370007D7C5A /* Post.swift */,
 				8A8F0570295D866300296354 /* Pokemon.swift */,
 				84A216572BCD34CC00CB8691 /* User.swift */,
@@ -697,6 +719,7 @@
 			children = (
 				8A5CC42A2ACD48F8007A555E /* APIService.swift */,
 				84A2165B2BCE231400CB8691 /* AuthService.swift */,
+				845C8A4B2BD8EFD600019310 /* JobService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1043,6 +1066,7 @@
 				84A216642BCE734100CB8691 /* LoadingViewController.swift in Sources */,
 				84A2165E2BCE23C500CB8691 /* Role.swift in Sources */,
 				8A8F0571295D866300296354 /* Pokemon.swift in Sources */,
+				845C8A532BD9127D00019310 /* PostModel.swift in Sources */,
 				8A58F9D029753B620047D607 /* UIImageViewExt.swift in Sources */,
 				8A8F0567295D437800296354 /* ExampleCellVM.swift in Sources */,
 				84E767FC2BC91371007D7C5A /* Post.swift in Sources */,
@@ -1051,12 +1075,15 @@
 				84E767CB2BC9117A007D7C5A /* LoginViewModel.swift in Sources */,
 				84E767CD2BC9117A007D7C5A /* LoginViewController.swift in Sources */,
 				8A625D562959807B007F1E99 /* OptionalExt.swift in Sources */,
+				845C8A4C2BD8EFD600019310 /* JobService.swift in Sources */,
 				8A625D5829598791007F1E99 /* StringExt.swift in Sources */,
 				8A90903129657824008218BD /* ExampleVM.swift in Sources */,
+				845C8A4A2BD8EDF300019310 /* JobModel.swift in Sources */,
 				84A2165C2BCE231500CB8691 /* AuthService.swift in Sources */,
 				84E767CA2BC9117A007D7C5A /* OnboardingViewController.swift in Sources */,
 				8A8DA9B22ACFBBC20066C230 /* UIViewController.swift in Sources */,
 				8A625D0A2955685E007F1E99 /* SceneDelegate.swift in Sources */,
+				845C8A4E2BD8F10000019310 /* APIJob.swift in Sources */,
 				8A625D5029597F85007F1E99 /* BundleExt.swift in Sources */,
 				84A216602BCE263F00CB8691 /* APIAuth.swift in Sources */,
 				84E768002BC91391007D7C5A /* Constants.swift in Sources */,
@@ -1072,6 +1099,7 @@
 				8A05D5DA2ACAAB50004FE287 /* ResponseSerializer.swift in Sources */,
 				84E768012BC91391007D7C5A /* ValidationUtils.swift in Sources */,
 				84E767C72BC9117A007D7C5A /* RegisterViewController.swift in Sources */,
+				845C8A512BD9125D00019310 /* Job.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

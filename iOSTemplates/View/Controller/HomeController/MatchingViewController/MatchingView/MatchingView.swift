@@ -3,7 +3,7 @@ import UIKit
 import Koloda
 import AVKit
 import AVFoundation
-
+import SDWebImage
 protocol MatchingViewDelegate: AnyObject {
     func view(_ view: MatchingView, needPerfom action: MatchingView.Action)
 }
@@ -31,7 +31,7 @@ final class MatchingView: OverlayView {
     @IBOutlet private weak var avatarImageView: UIImageView!
     //MARK: - Propeties
     weak var delegate: MatchingViewDelegate?
-    var viewModel: Post? {
+    var viewModel: Job? {
         didSet {
             updateView()
             setupUI()
@@ -61,26 +61,45 @@ final class MatchingView: OverlayView {
         guard let viewModel = viewModel else { return }
         let color = UIColor.black
         postImageView.backgroundColor = color
-        postImageView.image = UIImage(named: viewModel.url)
-        switch viewModel.type {
-        case "image":
-            postImageView.image = UIImage(named: viewModel.url)
-        default:
-            let videoURL = URL(string: viewModel.url)
-            let player = AVPlayer(url: videoURL!)
-            let playerLayer = AVPlayerLayer(player: player)
-            playerLayer.frame = postImageView.bounds
-            postImageView.layer.addSublayer(playerLayer)
-            player.play()
-        }
-        nameLabel.text = viewModel.name
-        //descriptionLabel.text = viewModel.description
-        numberHeartLabel.text = String(viewModel.numberHeart)
-        numberShareLabel.text = String(viewModel.numberShare)
-        numberMessageLabel.text = String(viewModel.numberMessage)
-        avatarImageView.image = UIImage(named: viewModel.avartar)
+        nameLabel.text = viewModel.title
         let text = viewModel.description
-        addSeeMoreInLabel(text: text)
+        addSeeMoreInLabel(text: text ?? "")
+        if viewModel.posts?.count ?? 0 > 0 {
+            if let post = viewModel.posts?[0] {
+                switch post.typeFile {
+                case "Video":
+                    let videoURL = URL(string: post.urlFile ?? "")
+                    let player = AVPlayer(url: videoURL!)
+                    let playerLayer = AVPlayerLayer(player: player)
+                    playerLayer.frame = postImageView.bounds
+                    postImageView.layer.addSublayer(playerLayer)
+                    player.play()
+                default:
+                    postImageView.sd_setImage(with: URL(string: post.urlFile ?? ""))
+                }
+            }
+        }
+
+
+//        postImageView.image = UIImage(named: viewModel.url)
+//        switch viewModel.type {
+//        case "image":
+//            postImageView.image = UIImage(named: viewModel.url)
+//        default:
+//            let videoURL = URL(string: viewModel.url)
+//            let player = AVPlayer(url: videoURL!)
+//            let playerLayer = AVPlayerLayer(player: player)
+//            playerLayer.frame = postImageView.bounds
+//            postImageView.layer.addSublayer(playerLayer)
+//            player.play()
+//        }
+//        nameLabel.text = viewModel.name
+//        //descriptionLabel.text = viewModel.description
+//        numberHeartLabel.text = String(viewModel.numberHeart)
+//        numberShareLabel.text = String(viewModel.numberShare)
+//        numberMessageLabel.text = String(viewModel.numberMessage)
+//        avatarImageView.image = UIImage(named: viewModel.avartar)
+
     }
     //MARK: - IBAction
     @IBAction private func searchButtonTouchUpInside(_ sender: UIButton) {

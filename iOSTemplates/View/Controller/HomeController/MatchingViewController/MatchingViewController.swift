@@ -26,27 +26,40 @@ final class MatchingViewController: ViewController {
     //MARK: - Functions
     override func setupUI() {
         super.setupUI()
+        LoadingUtils.shared().showLoadingView(isLoading: true)
     }
 
     override func setupData() {
         super.setupData()
-        guard let viewModel = viewModel else { return }
-        viewModel.listPost()
+        getListJob()
         kolodaView.delegate = self
         kolodaView.dataSource = self
+    }
+
+    private func getListJob() {
+        guard let viewModel = viewModel else { return }
+        LoadingUtils.shared().showLoadingView(isLoading: false) {
+            viewModel.getListJob { [weak self] result in
+                guard let this = self else { return }
+                switch result {
+                case .success:
+                    this.kolodaView.reloadData()
+                case .failure(let error):
+                    this.alert(error: error)
+                }
+            }
+        }
     }
 }
 
 //MARK: - KolodaViewDelegate, KolodaViewDataSource
 extension MatchingViewController: KolodaViewDelegate, KolodaViewDataSource {
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
-        guard let viewModel = self.viewModel else { return }
-        viewModel.listPost2()
         kolodaView.resetCurrentCardIndex()
-        
+
     }
     func kolodaNumberOfCards(_ koloda: Koloda.KolodaView) -> Int {
-        return viewModel?.posts.count ?? 0
+        return viewModel?.jobs.count ?? 0
     }
     func kolodaSpeedThatCardShouldDrag(_ koloda: KolodaView) -> DragSpeed {
         return .default
@@ -78,12 +91,12 @@ extension MatchingViewController: KolodaViewDelegate, KolodaViewDataSource {
         switch direction {
         case .left:
             guard let viewModel = viewModel else { return }
-            viewModel.removePost(at: index)
+            viewModel.removeJob(at: index)
             kolodaView.resetCurrentCardIndex()
         default:
             return
         }
-       
+
     }
     func kolodaDidResetCard(_ koloda: KolodaView) {
         if kolodaView.viewForCard(at: kolodaView.currentCardIndex) != nil {
@@ -97,8 +110,8 @@ extension MatchingViewController: MatchingViewDelegate {
         switch action {
         case .seeMore:
             let postDetail = PostDetailViewController()
-            let post = viewModel?.viewModelForMatching(at: kolodaView.currentCardIndex)
-            postDetail.viewModel = PostDetailViewModel(postModel: post)
+            let job = viewModel?.viewModelForMatching(at: kolodaView.currentCardIndex)
+            postDetail.viewModel = PostDetailViewModel(job: job)
             postDetail.delegate = self
             navigationController?.pushViewController(postDetail, animated: true)
             delegate?.viewController(self, needPerfom: TabBar.isHide)
@@ -124,7 +137,7 @@ extension MatchingViewController: PostDetailViewControllerDelegate {
 }
 
 extension UIView {
-    func addUIEffect(withBlurredView blurredView: UIVisualEffectView, color: UIColor, nameIcon: String , text: String, label: UILabel) {
+    func addUIEffect(withBlurredView blurredView: UIVisualEffectView, color: UIColor, nameIcon: String, text: String, label: UILabel) {
         blurredView.backgroundColor = color.withAlphaComponent(0.16)
         blurredView.frame = self.bounds
 
@@ -146,7 +159,7 @@ extension UIView {
             label.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 10),
             label.centerXAnchor.constraint(equalTo: blurredView.contentView.centerXAnchor)
             ])
-        
+
         self.addSubview(blurredView)
     }
 

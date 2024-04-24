@@ -23,11 +23,10 @@ class PostDetailViewController: ViewController {
     override func setupUI() {
         super.setupUI()
         navigationController?.isNavigationBarHidden = false
-        setupNavigation()
+        setupNavigationAndUpdateUI()
         configCollectionView()
-        if let post = viewModel?.postModel {
-            descriptionPostLabel.text = post.description
-        }
+        
+       
         skipButton.customCorner(withWidth: 1, radius: acceptButton.frame.height/2, color: UIColor.hexStringToUIColor(hex: "#A8071A"))
         acceptButton.customRoundCorners(radius: acceptButton.frame.height/2)
         
@@ -39,22 +38,50 @@ class PostDetailViewController: ViewController {
     override func setupData() {
         super.setupData()
     }
-
-    private func setupNavigation() {
-        let imageView = UIImageView()
-        NSLayoutConstraint.activate([
-            imageView.heightAnchor.constraint(equalToConstant: 32),
-            imageView.widthAnchor.constraint(equalToConstant: 32)
-            ])
-        imageView.image = UIImage(named: "image_avatar1")
-        imageView.customRoundCorners(radius: 16)
-        let titleLabel = UILabel()
-        titleLabel.text = "Name User"
-
-        let hStack = UIStackView(arrangedSubviews: [imageView, titleLabel])
-        hStack.spacing = 12
-        hStack.alignment = .center
-        setupUINavigationBar(withTitleView: hStack, left: UIImage(named: NameIcon.icon_back), right: UIImage(named: NameIcon.icon_more))
+    
+    private func setupNavigationAndUpdateUI() {
+        if let post = viewModel?.job {
+            descriptionPostLabel.text = post.title
+            namePostLabel.text = post.description
+            timePostLabel.text = post.expiredDay
+            quanlityPostLabel.text = String(post.quanlity ?? 0)
+            let titleLabel = UILabel()
+            if post.posts?.count ?? 0 > 0 {
+                if let post = post.posts?[0] {
+                    titleLabel.text = post.author
+                    
+                }
+            } else {
+                titleLabel.text = "Người dùng không tên"
+            }
+            let imageView = UIImageView()
+            NSLayoutConstraint.activate([
+                imageView.heightAnchor.constraint(equalToConstant: 32),
+                imageView.widthAnchor.constraint(equalToConstant: 32)
+                ])
+            imageView.image = UIImage(named: "image_avatar1")
+            imageView.customRoundCorners(radius: 16)
+            
+    
+            let hStack = UIStackView(arrangedSubviews: [imageView, titleLabel])
+            hStack.spacing = 12
+            hStack.alignment = .center
+            setupUINavigationBar(withTitleView: hStack, left: UIImage(named: NameIcon.icon_back), right: UIImage(named: NameIcon.icon_more))
+        }
+//        let imageView = UIImageView()
+//        NSLayoutConstraint.activate([
+//            imageView.heightAnchor.constraint(equalToConstant: 32),
+//            imageView.widthAnchor.constraint(equalToConstant: 32)
+//            ])
+//        imageView.image = UIImage(named: "image_avatar1")
+//        imageView.customRoundCorners(radius: 16)
+//        let titleLabel = UILabel()
+//        titleLabel.text = "Name User"
+//
+//        let hStack = UIStackView(arrangedSubviews: [imageView, titleLabel])
+//        hStack.spacing = 12
+//        hStack.alignment = .center
+//        setupUINavigationBar(withTitleView: hStack, left: UIImage(named: NameIcon.icon_back), right: UIImage(named: NameIcon.icon_more))
     }
     
     private func configCollectionView() {

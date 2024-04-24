@@ -9,8 +9,8 @@
 import Foundation
 
 class PostDetailViewModel {
-    var postModel: Post?
-    init(postModel: Post? = nil) {
-        self.postModel = postModel
+    var job: Job?
+    init(job: Job? = nil) {
+        self.job = job
     }
 }

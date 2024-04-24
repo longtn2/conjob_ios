@@ -2,7 +2,7 @@ import Foundation
 import Alamofire
 enum AuthService {
     case getUserLogin(email: String, password: String)
-    case userRegister(user: UserRegister)
+    case userRegister(user: Register)
 }
 
 extension AuthService: TargetType {

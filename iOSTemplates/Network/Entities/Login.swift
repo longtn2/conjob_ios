@@ -1,36 +1,21 @@
 import Foundation
-final class User: Codable {
-
-    // MARK: - Properties
-    var email: String
-    var password: String
-    var firstName: String
-    var lastName: String
-    var phoneNumber: String
-    var dob: String
-    var address: String
-    var avatar: String
-    var token: String
-    var refreshToken: String
-    var roles: [Role]
+class Login: Codable {
+    //MARK: - Propeties
+    var token, refreshToken, email, firstName: String?
+    var lastName, phoneNumber, dob, address: String?
+    var avatar: String?
+    var roles: [RoleModel]?
 
     enum CodingKeys: String, CodingKey {
-        case email = "email"
-        case password = "password"
-        case token = "token"
-        case refreshToken = "refreshToken"
+        case token, refreshToken, email
         case firstName = "first_name"
         case lastName = "last_name"
         case phoneNumber = "phone_number"
-        case dob = "dob"
-        case address = "address"
-        case avatar = "avatar"
-        case roles = "roles"
+        case dob, address, avatar, roles
     }
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         email = try container.decodeIfPresent(String.self, forKey: .email).unwrapped(or: "")
-        password = try container.decodeIfPresent(String.self, forKey: .password).unwrapped(or: "")
         token = try container.decodeIfPresent(String.self, forKey: .token).unwrapped(or: "")
         refreshToken = try container.decodeIfPresent(String.self, forKey: .refreshToken).unwrapped(or: "")
         firstName = try container.decodeIfPresent(String.self, forKey: .firstName).unwrapped(or: "")
@@ -39,8 +24,6 @@ final class User: Codable {
         dob = try container.decodeIfPresent(String.self, forKey: .dob).unwrapped(or: "")
         avatar = try container.decodeIfPresent(String.self, forKey: .avatar).unwrapped(or: "")
         address = try container.decodeIfPresent(String.self, forKey: .address).unwrapped(or: "")
-        roles = try container.decodeIfPresent([Role].self, forKey: .roles).unwrapped(or: [])
+        roles = try container.decodeIfPresent([RoleModel].self, forKey: .roles).unwrapped(or: [])
     }
-
 }
-

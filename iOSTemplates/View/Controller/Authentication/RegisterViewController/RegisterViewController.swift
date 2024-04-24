@@ -119,7 +119,7 @@ final class RegisterViewController: ViewController {
     }
     @IBAction private func continueButtonTouchUpInside(_ sender: UIButton) {
         LoadingUtils.shared().showLoadingView(isLoading: true)
-        let user = UserRegister(password: passwordTextField.text,
+        let user = Register(password: passwordTextField.text,
                                 firstName: firstNameTextField.text,
                                 lastName: lastNameTextField.text,
                                 email: emailTextField.text,
@@ -134,9 +134,13 @@ final class RegisterViewController: ViewController {
                 DispatchQueue.main.async {
                     switch result {
                     case .success:
-                        let loginVC = LoginViewController()
-                        loginVC.viewModel = LoginViewModel()
-                        this.navigationController?.pushViewController(loginVC, animated: true)
+                        if let message = this.viewModel?.regis?.message {
+                            this.alert(msg: message) { ok in
+                                let loginVC = LoginViewController()
+                                loginVC.viewModel = LoginViewModel()
+                                this.navigationController?.pushViewController(loginVC, animated: true)
+                            }
+                        }
                     case .failure(let error):
                         this.alert(error: error)
                     }

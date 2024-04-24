@@ -7,17 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		84205EB32BD240910033EA5C /* UserRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84205EB22BD240910033EA5C /* UserRegister.swift */; };
 		84205EB12BD234660033EA5C /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84205EB02BD234660033EA5C /* OnboardingViewController.xib */; };
+		84205EB32BD240910033EA5C /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84205EB22BD240910033EA5C /* RegisterModel.swift */; };
+		845563222BD8B9EA00CC4B11 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845563212BD8B9EA00CC4B11 /* LoginModel.swift */; };
+		845563242BD8BC8F00CC4B11 /* UserRoleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845563232BD8BC8F00CC4B11 /* UserRoleModel.swift */; };
+		845563262BD8C6CA00CC4B11 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845563252BD8C6CA00CC4B11 /* Login.swift */; };
+		845563282BD8C70800CC4B11 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845563272BD8C70800CC4B11 /* Register.swift */; };
 		849FDDBE2BD21FC300E205ED /* PostImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FDDBC2BD21FC300E205ED /* PostImageCollectionViewCell.swift */; };
 		849FDDBF2BD21FC300E205ED /* PostImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849FDDBD2BD21FC300E205ED /* PostImageCollectionViewCell.xib */; };
 		84A216532BCD130800CB8691 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A216512BCD130800CB8691 /* PostDetailViewController.swift */; };
 		84A216542BCD130800CB8691 /* PostDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A216522BCD130800CB8691 /* PostDetailViewController.xib */; };
 		84A216562BCD25CF00CB8691 /* PostDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A216552BCD25CF00CB8691 /* PostDetailViewModel.swift */; };
-		84A216582BCD34CD00CB8691 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A216572BCD34CC00CB8691 /* User.swift */; };
 		84A2165A2BCE0EFD00CB8691 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A216592BCE0EFD00CB8691 /* UserDefault.swift */; };
 		84A2165C2BCE231500CB8691 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2165B2BCE231400CB8691 /* AuthService.swift */; };
-		84A2165E2BCE23C500CB8691 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2165D2BCE23C500CB8691 /* Role.swift */; };
+		84A2165E2BCE23C500CB8691 /* RoleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2165D2BCE23C500CB8691 /* RoleModel.swift */; };
 		84A216602BCE263F00CB8691 /* APIAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2165F2BCE263F00CB8691 /* APIAuth.swift */; };
 		84A216642BCE734100CB8691 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A216622BCE734100CB8691 /* LoadingViewController.swift */; };
 		84A216652BCE734100CB8691 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A216632BCE734100CB8691 /* LoadingViewController.xib */; };
@@ -117,17 +120,20 @@
 		70CD2FC8403890DA7E5606E9 /* Pods-iOSTemplates-iOSTemplatesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSTemplates-iOSTemplatesUITests.debug.xcconfig"; path = "Target Support Files/Pods-iOSTemplates-iOSTemplatesUITests/Pods-iOSTemplates-iOSTemplatesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7936695A4008933DB12AF0FD /* Pods-iOSTemplates-iOSTemplatesUITests.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSTemplates-iOSTemplatesUITests.dev.xcconfig"; path = "Target Support Files/Pods-iOSTemplates-iOSTemplatesUITests/Pods-iOSTemplates-iOSTemplatesUITests.dev.xcconfig"; sourceTree = "<group>"; };
 		7EB0286623D74BD5DABEF9E6 /* Pods-iOSTemplates-iOSTemplatesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSTemplates-iOSTemplatesUITests.release.xcconfig"; path = "Target Support Files/Pods-iOSTemplates-iOSTemplatesUITests/Pods-iOSTemplates-iOSTemplatesUITests.release.xcconfig"; sourceTree = "<group>"; };
-		84205EB22BD240910033EA5C /* UserRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegister.swift; sourceTree = "<group>"; };
 		84205EB02BD234660033EA5C /* OnboardingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
+		84205EB22BD240910033EA5C /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
+		845563212BD8B9EA00CC4B11 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		845563232BD8BC8F00CC4B11 /* UserRoleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRoleModel.swift; sourceTree = "<group>"; };
+		845563252BD8C6CA00CC4B11 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		845563272BD8C70800CC4B11 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		849FDDBC2BD21FC300E205ED /* PostImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		849FDDBD2BD21FC300E205ED /* PostImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		84A216512BCD130800CB8691 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		84A216522BCD130800CB8691 /* PostDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostDetailViewController.xib; sourceTree = "<group>"; };
 		84A216552BCD25CF00CB8691 /* PostDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewModel.swift; sourceTree = "<group>"; };
-		84A216572BCD34CC00CB8691 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		84A216592BCE0EFD00CB8691 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		84A2165B2BCE231400CB8691 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		84A2165D2BCE23C500CB8691 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
+		84A2165D2BCE23C500CB8691 /* RoleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleModel.swift; sourceTree = "<group>"; };
 		84A2165F2BCE263F00CB8691 /* APIAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAuth.swift; sourceTree = "<group>"; };
 		84A216622BCE734100CB8691 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		84A216632BCE734100CB8691 /* LoadingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
@@ -685,9 +691,12 @@
 			children = (
 				84E767FB2BC91370007D7C5A /* Post.swift */,
 				8A8F0570295D866300296354 /* Pokemon.swift */,
-				84A216572BCD34CC00CB8691 /* User.swift */,
-				84A2165D2BCE23C500CB8691 /* Role.swift */,
-				84205EB22BD240910033EA5C /* UserRegister.swift */,
+				84A2165D2BCE23C500CB8691 /* RoleModel.swift */,
+				84205EB22BD240910033EA5C /* RegisterModel.swift */,
+				845563212BD8B9EA00CC4B11 /* LoginModel.swift */,
+				845563232BD8BC8F00CC4B11 /* UserRoleModel.swift */,
+				845563252BD8C6CA00CC4B11 /* Login.swift */,
+				845563272BD8C70800CC4B11 /* Register.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1012,10 +1021,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84A216582BCD34CD00CB8691 /* User.swift in Sources */,
 				8A56A101295D3EA800F2287D /* ExampleCell.swift in Sources */,
 				84E767C82BC9117A007D7C5A /* RegisterViewModel.swift in Sources */,
 				84A216692BCE769900CB8691 /* LoadingViewModel.swift in Sources */,
+				845563262BD8C6CA00CC4B11 /* Login.swift in Sources */,
 				84E768052BC913C8007D7C5A /* UIButonExt.swift in Sources */,
 				84E767F82BC9125D007D7C5A /* HomeController.swift in Sources */,
 				8A5CC4292ACD2281007A555E /* DataExt.swift in Sources */,
@@ -1030,6 +1039,7 @@
 				8A8F056D295D814900296354 /* RequestSerializer.swift in Sources */,
 				84E767F92BC9125D007D7C5A /* BottomTabBarView.swift in Sources */,
 				84E767EB2BC9125D007D7C5A /* MatchingViewController.swift in Sources */,
+				845563222BD8B9EA00CC4B11 /* LoginModel.swift in Sources */,
 				8A625D0C2955685E007F1E99 /* ViewController.swift in Sources */,
 				8A8DA9B42ACFBF540066C230 /* App.swift in Sources */,
 				8A5CC42F2ACD52E4007A555E /* APIPokemon.swift in Sources */,
@@ -1037,11 +1047,12 @@
 				84E767E92BC9125D007D7C5A /* DatePickerViewController.swift in Sources */,
 				8A625D082955685E007F1E99 /* AppDelegate.swift in Sources */,
 				84A216672BCE744500CB8691 /* LoadingUtils.swift in Sources */,
+				845563242BD8BC8F00CC4B11 /* UserRoleModel.swift in Sources */,
 				8A5CC4322ACD649D007A555E /* AppConfiguration.swift in Sources */,
 				8A8F056B295D783900296354 /* UICollectionViewExt.swift in Sources */,
 				8A5CC42B2ACD48F8007A555E /* APIService.swift in Sources */,
 				84A216642BCE734100CB8691 /* LoadingViewController.swift in Sources */,
-				84A2165E2BCE23C500CB8691 /* Role.swift in Sources */,
+				84A2165E2BCE23C500CB8691 /* RoleModel.swift in Sources */,
 				8A8F0571295D866300296354 /* Pokemon.swift in Sources */,
 				8A58F9D029753B620047D607 /* UIImageViewExt.swift in Sources */,
 				8A8F0567295D437800296354 /* ExampleCellVM.swift in Sources */,
@@ -1049,6 +1060,7 @@
 				8A8DA9B72ACFBF820066C230 /* String.swift in Sources */,
 				84E767F12BC9125D007D7C5A /* AddPostViewController.swift in Sources */,
 				84E767CB2BC9117A007D7C5A /* LoginViewModel.swift in Sources */,
+				845563282BD8C70800CC4B11 /* Register.swift in Sources */,
 				84E767CD2BC9117A007D7C5A /* LoginViewController.swift in Sources */,
 				8A625D562959807B007F1E99 /* OptionalExt.swift in Sources */,
 				8A625D5829598791007F1E99 /* StringExt.swift in Sources */,
@@ -1067,7 +1079,7 @@
 				84E767F72BC9125D007D7C5A /* NotificationViewController.swift in Sources */,
 				8A625D5229597FB0007F1E99 /* CollectionExt.swift in Sources */,
 				84E767EF2BC9125D007D7C5A /* MatchingViewModel.swift in Sources */,
-				84205EB32BD240910033EA5C /* UserRegister.swift in Sources */,
+				84205EB32BD240910033EA5C /* RegisterModel.swift in Sources */,
 				84E767F32BC9125D007D7C5A /* ProfileViewController.swift in Sources */,
 				8A05D5DA2ACAAB50004FE287 /* ResponseSerializer.swift in Sources */,
 				84E768012BC91391007D7C5A /* ValidationUtils.swift in Sources */,

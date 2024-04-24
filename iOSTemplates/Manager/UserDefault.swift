@@ -5,7 +5,7 @@ struct DefaultsKeys {
 
 class UserManager {
     static let shared = UserManager()
-    func saveUserToUserDefaults(user: User?) {
+    func saveUserToUserDefaults(user: LoginModel?) {
             do {
                 let encodedData = try JSONEncoder().encode(user)
                 UserDefaults.standard.set(encodedData, forKey: DefaultsKeys.currentUser)
@@ -14,10 +14,10 @@ class UserManager {
             }
         }
     
-    func getUserFromUserDefaults() -> User? {
+    func getUserFromUserDefaults() -> LoginModel? {
             if let savedData = UserDefaults.standard.data(forKey: DefaultsKeys.currentUser) {
                 do {
-                    let decodedGood = try JSONDecoder().decode(User.self, from: savedData)
+                    let decodedGood = try JSONDecoder().decode(LoginModel.self, from: savedData)
                     return decodedGood
                 } catch {
                     print("Error decoding Good: \(error.localizedDescription)")

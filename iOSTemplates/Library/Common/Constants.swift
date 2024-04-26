@@ -55,4 +55,5 @@ struct NameIcon {
 
 struct CellIdentifer {
     static let matchingView = "MatchingView"
+    static let TabCollectionViewCell = "TabCollectionViewCell"
 }

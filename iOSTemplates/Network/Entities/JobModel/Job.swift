@@ -7,7 +7,7 @@ class Job: Codable {
     var budget: Int?
     var jobType, location, expiredDay: String?
     var quanlity: Int?
-    var status: String?
+    var status: Int?
     var posts: [PostModel]?
 
     enum CodingKeys: String, CodingKey {
@@ -28,7 +28,7 @@ class Job: Codable {
         location = try container.decodeIfPresent(String.self, forKey: .location).unwrapped(or: "")
         expiredDay = try container.decodeIfPresent(String.self, forKey: .expiredDay).unwrapped(or: "")
         quanlity = try container.decodeIfPresent(Int.self, forKey: .quanlity).unwrapped(or: 0)
-        status = try container.decodeIfPresent(String.self, forKey: .status).unwrapped(or: "")
+        status = try container.decodeIfPresent(Int.self, forKey: .status).unwrapped(or: 0)
         posts = try container.decodeIfPresent([PostModel].self, forKey: .posts).unwrapped(or: [])
 
     }
